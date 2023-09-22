@@ -8,7 +8,7 @@
     },
     "scripts": {
         "build": "rimraf dist && tsc -p tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
-        "start": "NODE_ENV=production node dist/main/server.js",
+        "start": "cross-env NODE_ENV=production node dist/main/server.js",
         "postinstall": "tsc",
         "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "prod": "cross-env NODE_ENV=production tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
