@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "npx nodemon",
         "build": "rimraf ./dist && tsc && tsc-alias",
-        "start": "babel-node dist/main/server.js",
+        "start": "nodemon --exec babel-node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "prettier": "prettier --check .",
