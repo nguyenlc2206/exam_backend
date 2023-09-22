@@ -4,7 +4,7 @@ dotenv.config();
 
 const { env } = process;
 
-const ENV = {
+export const ENV = {
     port: env.PORT || 8000,
     bcryptSalt: Number(env.BCRYPT_SALT) || 12,
     jwtSecret: env.JWT_SECRET || 'any_secret_1tJK==__02&sdA',
@@ -16,5 +16,3 @@ const ENV = {
     databaseName: env.DATABASE_NAME,
     databaseURL: env.DATABASE_URL
 };
-
-export default ENV;
