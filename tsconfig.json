@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "ESNext", // Quy định output module được sử dụng
+        "module": "CommonJS", // Quy định output module được sử dụng
         "moduleResolution": "node",
-        "target": "ESNext", // Target output cho code
+        "target": "ES6", // Target output cho code
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
         "strict": true /* Enable all strict type-checking options. */,
@@ -15,9 +15,7 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "strictPropertyInitialization": false,
-        "lib": ["ESNext"],
-        "allowJs": true
+        "strictPropertyInitialization": false
     },
     "exclude": ["node_modules", "dist"],
     "ts-node": {
