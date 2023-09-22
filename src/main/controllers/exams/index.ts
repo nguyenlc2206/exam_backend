@@ -1,13 +1,12 @@
+import { CategoryServices } from '@src/application/services/categories/category.services';
+import { ExamsServices } from '@src/application/services/exams/exam.services';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
 import { NextFunction, Request, Response } from 'express';
-
-import { CreateExamController } from './exam.create.controller';
-import { GetAllExamsController } from './exam.getAll.controller';
-import { GetExamByIdController } from './exam.getById.controller';
-import { UpdateExamController } from './exam.update.controller';
-import { CategoryServices } from '../../../application/services/categories/category.services';
-import { ExamsServices } from '../../../application/services/exams/exam.services';
-import ExamsCategoryEntity from '../../../domain/entities/exam.category.entity';
-import ExamsEntity from '../../../domain/entities/exam.entity';
+import { CreateExamController } from '@src/main/controllers/exams/exam.create.controller';
+import { GetAllExamsController } from '@src/main/controllers/exams/exam.getAll.controller';
+import { GetExamByIdController } from '@src/main/controllers/exams/exam.getById.controller';
+import { UpdateExamController } from '@src/main/controllers/exams/exam.update.controller';
 
 /** define exams controller */
 export class ExamsController {

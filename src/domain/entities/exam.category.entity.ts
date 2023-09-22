@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import ExamsEntity from './exam.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
 
 /** Define exam category */
 @Entity()

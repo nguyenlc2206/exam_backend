@@ -1,17 +1,16 @@
+import { ExamsServicesImpl } from '@src/application/services/exams/exam.services.impl';
+import { QuestionsServicesImpl } from '@src/application/services/questions/questions.services.impl';
+import { UsersServicesImpl } from '@src/application/services/users/users.services.impl';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import { ExamsRepositoryImpl } from '@src/infrastructure/repositories/exam.repository.impl';
+import { QuestionsRepositoryImpl } from '@src/infrastructure/repositories/questions.repository.impl';
+import { UsersRepositoryImpl } from '@src/infrastructure/repositories/users.repository.impl';
 import { Router } from 'express';
-
-import { AuthenticationsController } from '../controllers/authentications';
-import roleRestrictTo from '../controllers/authentications/permission.controller';
-import { QuestionsController } from '../controllers/questions';
-import { ExamsServicesImpl } from '../../application/services/exams/exam.services.impl';
-import { QuestionsServicesImpl } from '../../application/services/questions/questions.services.impl';
-import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
-import ExamsEntity from '../../domain/entities/exam.entity';
-import QuestionsEntity from '../../domain/entities/question.entity';
-import UsersEntity from '../../domain/entities/user.entity';
-import { ExamsRepositoryImpl } from '../../infrastructure/repositories/exam.repository.impl';
-import { QuestionsRepositoryImpl } from '../../infrastructure/repositories/questions.repository.impl';
-import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
+import { AuthenticationsController } from '@src/main/controllers/authentications';
+import roleRestrictTo from '@src/main/controllers/authentications/permission.controller';
+import { QuestionsController } from '@src/main/controllers/questions';
 
 /** init repository */
 const questionsRepository = new QuestionsRepositoryImpl(QuestionsEntity);

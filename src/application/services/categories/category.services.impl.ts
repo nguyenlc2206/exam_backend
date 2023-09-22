@@ -1,6 +1,6 @@
-import ExamsCategoryEntity from '../../../domain/entities/exam.category.entity';
-import { ExamsCategoryRepository } from '../../repositories/exam.category.repository';
-import { CategoryServices } from './category.services';
+import { ExamsCategoryRepository } from '@src/application/repositories/exam.category.repository';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
+import { CategoryServices } from '@src/application/services/categories/category.services';
 
 /** Deinf category services implement */
 export class CategoryServicesImpl<Entity extends ExamsCategoryEntity> implements CategoryServices<Entity> {

@@ -1,6 +1,6 @@
-import UsersEntity from '../../../domain/entities/user.entity';
-import { UsersRepository } from '../../repositories/users.repository';
-import { UsersServices } from './users.services';
+import { UsersRepository } from '@src/application/repositories/users.repository';
+import { UsersServices } from '@src/application/services/users/users.services';
+import UsersEntity from '@src/domain/entities/user.entity';
 
 /** Define users services implement */
 export class UsersServicesImpl<Entity extends UsersEntity> implements UsersServices<Entity> {

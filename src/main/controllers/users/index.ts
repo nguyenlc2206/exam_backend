@@ -1,10 +1,9 @@
+import { UsersServices } from '@src/application/services/users/users.services';
+import UsersEntity from '@src/domain/entities/user.entity';
 import { NextFunction, Request, Response } from 'express';
-
-import { CreateUserController } from './user.create.controller';
-import { DeleteUserController } from './user.delete.controller';
-import { GetAllUsersController } from './user.getAll.controller';
-import { UsersServices } from '../../../application/services/users/users.services';
-import UsersEntity from '../../../domain/entities/user.entity';
+import { CreateUserController } from '@src/main/controllers/users/user.create.controller';
+import { DeleteUserController } from '@src/main/controllers/users/user.delete.controller';
+import { GetAllUsersController } from '@src/main/controllers/users/user.getAll.controller';
 
 /** Define users controller */
 export class UsersController {

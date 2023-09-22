@@ -1,6 +1,6 @@
-import RolesEntity from '../../../domain/entities/role.entity';
-import { RolesRepository } from '../../repositories/roles.repository';
-import { RoleServices } from './roles.services';
+import { RolesRepository } from '@src/application/repositories/roles.repository';
+import { RoleServices } from '@src/application/services/roles/roles.services';
+import RolesEntity from '@src/domain/entities/role.entity';
 
 /** Implement roles services */
 export class RoleServicesImpl<Entity extends RolesEntity> implements RoleServices<Entity> {

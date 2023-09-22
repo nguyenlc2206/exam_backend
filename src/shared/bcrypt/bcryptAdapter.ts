@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { HashComparer, Hasher } from '../entities/hash.entity';
+import { HashComparer, Hasher } from '@src/shared/entities/hash.entity';
 
 export class BcryptAdapter implements Hasher, HashComparer {
     constructor(private readonly salt: number) {}

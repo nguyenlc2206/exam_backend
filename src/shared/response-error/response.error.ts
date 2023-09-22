@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { ResponseError } from '../entities/error.entity';
+import { ResponseError } from '@src/shared/entities/error.entity';
 
 /**  send response on env development */
 export const sendErrorDev = (err: ResponseError, res: Response) => {

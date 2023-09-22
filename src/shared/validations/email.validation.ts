@@ -1,7 +1,7 @@
 import validator from 'validator';
 
-import { Validation } from '../functions';
-import AppError from '../../error-handling/app.error';
+import { Validation } from '@src/shared/functions';
+import AppError from '@src/error-handling/app.error';
 
 export interface EmailValidator {
     isValid: (email: string) => boolean;

@@ -7,8 +7,8 @@ import {
     JoinTable,
     DeleteDateColumn
 } from 'typeorm';
-import GroupsEntity from './group.entity';
-import RolesEntity from './role.entity';
+import GroupsEntity from '@src/domain/entities/group.entity';
+import RolesEntity from '@src/domain/entities/role.entity';
 
 /** Define group role entity */
 @Entity()

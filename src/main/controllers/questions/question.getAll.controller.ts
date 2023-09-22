@@ -1,9 +1,9 @@
+import { QuestionsServices } from '@src/application/services/questions/questions.services';
+import QuestionsEntity from '@src/domain/entities/question.entity';
+import AppError from '@src/error-handling/app.error';
+import catchAsync from '@src/shared/catch-async';
+import { Either, success } from '@src/shared/functions';
 import { NextFunction, Request, Response } from 'express';
-import { QuestionsServices } from '../../../application/services/questions/questions.services';
-import QuestionsEntity from '../../../domain/entities/question.entity';
-import AppError from '../../../error-handling/app.error';
-import catchAsync from '../../../shared/catch-async';
-import { Either, success } from '../../../shared/functions';
 
 /** Define questions getAll controller */
 export class GetAllQuestionsController {

@@ -1,4 +1,4 @@
-import { Validation } from '../functions';
+import { Validation } from '@src/shared/functions';
 
 export class ValidationComposite implements Validation {
     constructor(private readonly validations: Validation[]) {}

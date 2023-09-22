@@ -1,17 +1,16 @@
+import { CategoryServicesImpl } from '@src/application/services/categories/category.services.impl';
+import { ExamsServicesImpl } from '@src/application/services/exams/exam.services.impl';
+import { UsersServicesImpl } from '@src/application/services/users/users.services.impl';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import { ExamsCategoryRepositoryImpl } from '@src/infrastructure/repositories/exam.category.repository.impl';
+import { ExamsRepositoryImpl } from '@src/infrastructure/repositories/exam.repository.impl';
+import { UsersRepositoryImpl } from '@src/infrastructure/repositories/users.repository.impl';
 import { Router } from 'express';
-
-import { AuthenticationsController } from '../controllers/authentications';
-import roleRestrictTo from '../controllers/authentications/permission.controller';
-import { ExamsController } from '../controllers/exams';
-import { CategoryServicesImpl } from '../../application/services/categories/category.services.impl';
-import { ExamsServicesImpl } from '../../application/services/exams/exam.services.impl';
-import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
-import ExamsCategoryEntity from '../../domain/entities/exam.category.entity';
-import ExamsEntity from '../../domain/entities/exam.entity';
-import UsersEntity from '../../domain/entities/user.entity';
-import { ExamsCategoryRepositoryImpl } from '../../infrastructure/repositories/exam.category.repository.impl';
-import { ExamsRepositoryImpl } from '../../infrastructure/repositories/exam.repository.impl';
-import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
+import { AuthenticationsController } from '@src/main/controllers/authentications';
+import roleRestrictTo from '@src/main/controllers/authentications/permission.controller';
+import { ExamsController } from '@src/main/controllers/exams';
 
 /** init repository */
 const examsRepository = new ExamsRepositoryImpl(ExamsEntity);

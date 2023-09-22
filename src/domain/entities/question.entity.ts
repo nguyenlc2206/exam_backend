@@ -8,8 +8,8 @@ import {
     OneToMany,
     PrimaryGeneratedColumn
 } from 'typeorm';
-import ExamsEntity from './exam.entity';
-import AnswersEntity from './answer.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import AnswersEntity from '@src/domain/entities/answer.entity';
 
 /** Define question entity */
 @Entity()

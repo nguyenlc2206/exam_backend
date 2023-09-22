@@ -1,9 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
-import { GroupsServices } from '../../../../application/services/groups/groups.services';
-import GroupsEntity from '../../../../domain/entities/group.entity';
-import AppError from '../../../../error-handling/app.error';
-import catchAsync from '../../../../shared/catch-async';
-import { Either, success } from '../../../../shared/functions';
+
+import { GroupsServices } from '@src/application/services/groups/groups.services';
+import GroupsEntity from '@src/domain/entities/group.entity';
+import AppError from '@src/error-handling/app.error';
+import catchAsync from '@src/shared/catch-async';
+import { Either, success } from '@src/shared/functions';
 
 /** Define getAll Groups Controller */
 export class GetAllGroupsController {

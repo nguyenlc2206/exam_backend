@@ -1,10 +1,10 @@
 import express, { NextFunction, Request, Express } from 'express';
-
-import { expressCors } from './express.cors';
 import { rateLimit } from 'express-rate-limit';
-import { setupRoutes } from './express.routes';
-import AppError from '../../error-handling/app.error';
-import { globalErrorConfig } from '../../error-handling/global.error';
+
+import { expressCors } from '@src/main/config/express.cors';
+import { setupRoutes } from '@src/main/config/express.routes';
+import AppError from '@src/error-handling/app.error';
+import { globalErrorConfig } from '@src/error-handling/global.error';
 
 class ExpressConfig {
     private app: Express;

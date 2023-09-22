@@ -1,5 +1,5 @@
-import AppError from '../../error-handling/app.error';
-import { Validation } from '../functions';
+import AppError from '@src/error-handling/app.error';
+import { Validation } from '@src/shared/functions';
 
 export class RequiredFieldValidation implements Validation {
     constructor(private readonly fieldName: string) {}

@@ -1,8 +1,7 @@
+import { ExamRelationUserRepository } from '@src/application/repositories/exam.user.repository';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
 import { EntityTarget, FindOptionsRelations, FindOptionsWhere, Repository } from 'typeorm';
-
-import AppDataSource from '../config/typeorm.config';
-import ExamUserEntity from '../../domain/entities/examUser.entity';
-import { ExamRelationUserRepository } from '../../application/repositories/exam.user.repository';
+import AppDataSource from '@src/infrastructure/config/typeorm.config';
 
 /** define exam relation with user repository implement */
 export class ExamRelationUserRepositoryImpl<T extends ExamUserEntity> implements ExamRelationUserRepository<T> {

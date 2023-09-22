@@ -1,1 +1,1 @@
-export * from './response.error';
+export * from '@src/shared/response-error/response.error';

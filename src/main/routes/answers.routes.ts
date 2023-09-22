@@ -1,17 +1,16 @@
+import { AnwsersServicesImpl } from '@src/application/services/answers/answers.services.impl';
+import { QuestionsServicesImpl } from '@src/application/services/questions/questions.services.impl';
+import { UsersServicesImpl } from '@src/application/services/users/users.services.impl';
+import AnswersEntity from '@src/domain/entities/answer.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import { AnwsersRepositoryImpl } from '@src/infrastructure/repositories/answers.repository.impl';
+import { QuestionsRepositoryImpl } from '@src/infrastructure/repositories/questions.repository.impl';
+import { UsersRepositoryImpl } from '@src/infrastructure/repositories/users.repository.impl';
 import { Router } from 'express';
-
-import { AnswersController } from '../controllers/answers';
-import { AuthenticationsController } from '../controllers/authentications';
-import roleRestrictTo from '../controllers/authentications/permission.controller';
-import { AnwsersServicesImpl } from '../../application/services/answers/answers.services.impl';
-import { QuestionsServicesImpl } from '../../application/services/questions/questions.services.impl';
-import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
-import AnswersEntity from '../../domain/entities/answer.entity';
-import QuestionsEntity from '../../domain/entities/question.entity';
-import UsersEntity from '../../domain/entities/user.entity';
-import { AnwsersRepositoryImpl } from '../../infrastructure/repositories/answers.repository.impl';
-import { QuestionsRepositoryImpl } from '../../infrastructure/repositories/questions.repository.impl';
-import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
+import { AnswersController } from '@src/main/controllers/answers';
+import { AuthenticationsController } from '@src/main/controllers/authentications';
+import roleRestrictTo from '@src/main/controllers/authentications/permission.controller';
 
 /** init repository */
 const questionsRepository = new QuestionsRepositoryImpl(QuestionsEntity);

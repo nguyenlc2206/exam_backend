@@ -1,14 +1,13 @@
+import { GroupsServicesImpl } from '@src/application/services/groups/groups.services.impl';
+import { UsersServicesImpl } from '@src/application/services/users/users.services.impl';
+import GroupsEntity from '@src/domain/entities/group.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import { GroupsRepositoryImpl } from '@src/infrastructure/repositories/groups.repository.impl';
+import { UsersRepositoryImpl } from '@src/infrastructure/repositories/users.repository.impl';
 import { Router } from 'express';
-
-import { AuthenticationsController } from '../controllers/authentications';
-import { GroupsController } from '../controllers/authentications/groups';
-import roleRestrictTo from '../controllers/authentications/permission.controller';
-import { GroupsServicesImpl } from '../../application/services/groups/groups.services.impl';
-import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
-import GroupsEntity from '../../domain/entities/group.entity';
-import UsersEntity from '../../domain/entities/user.entity';
-import { GroupsRepositoryImpl } from '../../infrastructure/repositories/groups.repository.impl';
-import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
+import { AuthenticationsController } from '@src/main/controllers/authentications';
+import { GroupsController } from '@src/main/controllers/authentications/groups';
+import roleRestrictTo from '@src/main/controllers/authentications/permission.controller';
 
 /** init repository */
 const groupsRepository = new GroupsRepositoryImpl(GroupsEntity);

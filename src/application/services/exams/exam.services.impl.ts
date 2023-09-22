@@ -1,6 +1,6 @@
-import ExamsEntity from '../../../domain/entities/exam.entity';
-import { ExamsRepository } from '../../repositories/exam.repository';
-import { ExamsServices } from './exam.services';
+import { ExamsRepository } from '@src/application/repositories/exam.repository';
+import { ExamsServices } from '@src/application/services/exams/exam.services';
+import ExamsEntity from '@src/domain/entities/exam.entity';
 
 /** define exam services implement */
 export class ExamsServicesImpl<Entity extends ExamsEntity> implements ExamsServices<Entity> {

@@ -1,8 +1,8 @@
 import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
 
-import AppDataSource from '../config/typeorm.config';
-import ExamsCategoryEntity from '../../domain/entities/exam.category.entity';
-import { ExamsCategoryRepository } from '../../application/repositories/exam.category.repository';
+import AppDataSource from '@src/infrastructure/config/typeorm.config';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
+import { ExamsCategoryRepository } from '@src/application/repositories/exam.category.repository';
 
 /** define exam category repository implement */
 export class ExamsCategoryRepositoryImpl<T extends ExamsCategoryEntity> implements ExamsCategoryRepository<T> {

@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { CreateExamRelationUserController } from './exam.user.create.controller';
-import { GetAllExamsWithAdminController } from './exam.user.getAll.admin.controller';
-import { GetAllExamsWithUserIdController } from './exam.user.getAll.userId.controller';
-import { ExamRelationUserServices } from '../../../application/services/exam-user/exam.user.services';
-import { ExamsServices } from '../../../application/services/exams/exam.services';
-import { UsersServices } from '../../../application/services/users/users.services';
-import ExamsEntity from '../../../domain/entities/exam.entity';
-import ExamUserEntity from '../../../domain/entities/examUser.entity';
-import UsersEntity from '../../../domain/entities/user.entity';
+import { ExamRelationUserServices } from '@src/application/services/exam-user/exam.user.services';
+import { ExamsServices } from '@src/application/services/exams/exam.services';
+import { UsersServices } from '@src/application/services/users/users.services';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import { CreateExamRelationUserController } from '@src/main/controllers/exam-user/exam.user.create.controller';
+import { GetAllExamsWithAdminController } from '@src/main/controllers/exam-user/exam.user.getAll.admin.controller';
+import { GetAllExamsWithUserIdController } from '@src/main/controllers/exam-user/exam.user.getAll.userId.controller';
 
 /** define exam relation user controller */
 export class ExamRelationUserController {

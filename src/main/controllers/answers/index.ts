@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { CreateAnwserController } from './answer.create.controller';
-import { DeleteAnswerController } from './answer.delete.controller';
-import { AnswersServices } from '../../../application/services/answers/answers.services';
-import { QuestionsServices } from '../../../application/services/questions/questions.services';
-import AnswersEntity from '../../../domain/entities/answer.entity';
-import QuestionsEntity from '../../../domain/entities/question.entity';
+import { AnswersServices } from '@src/application/services/answers/answers.services';
+import { QuestionsServices } from '@src/application/services/questions/questions.services';
+import AnswersEntity from '@src/domain/entities/answer.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
+import { CreateAnwserController } from '@src/main/controllers/answers/answer.create.controller';
+import { DeleteAnswerController } from '@src/main/controllers/answers/answer.delete.controller';
 
 /** define answers controller */
 export class AnswersController {

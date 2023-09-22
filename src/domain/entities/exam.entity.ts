@@ -8,10 +8,10 @@ import {
     OneToMany,
     PrimaryGeneratedColumn
 } from 'typeorm';
-import UsersEntity from './user.entity';
-import ExamsCategoryEntity from './exam.category.entity';
-import ExamUserEntity from './examUser.entity';
-import QuestionsEntity from './question.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
 
 /** Define exam entity */
 @Entity()

@@ -1,12 +1,12 @@
+import { ExamsServices } from '@src/application/services/exams/exam.services';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import AppError from '@src/error-handling/app.error';
+import catchAsync from '@src/shared/catch-async';
+import { HttpRequest } from '@src/shared/entities/http.entity';
+import { Validation, Either, failure, success } from '@src/shared/functions';
+import { ValidationComposite } from '@src/shared/validations';
+import { RequiredFieldValidation } from '@src/shared/validations/requiredFields';
 import { NextFunction, Request, Response } from 'express';
-import { ExamsServices } from '../../../application/services/exams/exam.services';
-import ExamsEntity from '../../../domain/entities/exam.entity';
-import AppError from '../../../error-handling/app.error';
-import catchAsync from '../../../shared/catch-async';
-import { HttpRequest } from '../../../shared/entities/http.entity';
-import { Validation, Either, failure, success } from '../../../shared/functions';
-import { ValidationComposite } from '../../../shared/validations';
-import { RequiredFieldValidation } from '../../../shared/validations/requiredFields';
 
 /** define update exam controller */
 export class UpdateExamController {

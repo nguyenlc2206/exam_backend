@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { Decrypter, KeyEntity, TokenGenerator } from '../entities/jwt.entity';
+import { Decrypter, KeyEntity, TokenGenerator } from '@src/shared/entities/jwt.entity';
 
 export class TokenGeneratorAdapter implements TokenGenerator, Decrypter {
     constructor(

@@ -9,9 +9,9 @@ import {
     DeleteDateColumn,
     OneToMany
 } from 'typeorm';
-import GroupsEntity from './group.entity';
-import ExamsEntity from './exam.entity';
-import ExamUserEntity from './examUser.entity';
+import GroupsEntity from '@src/domain/entities/group.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
 
 export const UNIQUE_USER_EMAIL_CONSTRAINT = 'unique_user_email_constraint';
 /** Define user entity */

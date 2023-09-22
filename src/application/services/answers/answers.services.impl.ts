@@ -1,6 +1,6 @@
-import AnswersEntity from '../../../domain/entities/answer.entity';
-import { AnswersRepository } from '../../repositories/answers.repository';
-import { AnswersServices } from './answers.services';
+import { AnswersRepository } from '@src/application/repositories/answers.repository';
+import AnswersEntity from '@src/domain/entities/answer.entity';
+import { AnswersServices } from '@src/application/services/answers/answers.services';
 
 /** define anwsers services implement */
 export class AnwsersServicesImpl<Entity extends AnswersEntity> implements AnswersServices<Entity> {

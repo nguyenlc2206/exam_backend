@@ -7,7 +7,7 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn
 } from 'typeorm';
-import QuestionsEntity from './question.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
 
 /** Define answer entity */
 @Entity()

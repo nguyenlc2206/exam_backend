@@ -1,1 +1,1 @@
-export * from './error.entity';
+export * from '@src/shared/entities/error.entity';

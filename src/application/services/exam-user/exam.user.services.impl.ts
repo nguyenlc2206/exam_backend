@@ -1,6 +1,6 @@
-import ExamUserEntity from '../../../domain/entities/examUser.entity';
-import { ExamRelationUserRepository } from '../../repositories/exam.user.repository';
-import { ExamRelationUserServices } from './exam.user.services';
+import { ExamRelationUserRepository } from '@src/application/repositories/exam.user.repository';
+import { ExamRelationUserServices } from '@src/application/services/exam-user/exam.user.services';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
 
 /** define exam user services implement */
 export class ExamRelationUserServicesImpl<Entity extends ExamUserEntity> implements ExamRelationUserServices<Entity> {

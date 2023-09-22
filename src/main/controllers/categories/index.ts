@@ -1,9 +1,8 @@
+import { CategoryServices } from '@src/application/services/categories/category.services';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
 import { NextFunction, Request, Response } from 'express';
-
-import { CreateCategoryController } from './category.create.controller';
-import { GetAllCategoryController } from './category.getAll.controller';
-import { CategoryServices } from '../../../application/services/categories/category.services';
-import ExamsCategoryEntity from '../../../domain/entities/exam.category.entity';
+import { CreateCategoryController } from '@src/main/controllers/categories/category.create.controller';
+import { GetAllCategoryController } from '@src/main/controllers/categories/category.getAll.controller';
 
 /** define category controller */
 export class CategoryController {

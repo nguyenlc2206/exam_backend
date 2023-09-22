@@ -1,9 +1,8 @@
 import express from 'express';
 import compression from 'compression';
-
-import { ENV } from './config/env.config';
-import ExpressConfig from './config/express.config';
-import AppDataSource from '../infrastructure/config/typeorm.config';
+import AppDataSource from '@src/infrastructure/config/typeorm.config';
+import { ENV } from '@src/main/config/env.config';
+import ExpressConfig from '@src/main/config/express.config';
 
 /** Define main function */
 const main = async () => {

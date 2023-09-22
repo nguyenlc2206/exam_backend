@@ -1,6 +1,6 @@
-import GroupsEntity from '../../../domain/entities/group.entity';
-import { GroupsRepository } from '../../repositories/groups.repository';
-import { GroupsServices } from './groups.services';
+import { GroupsRepository } from '@src/application/repositories/groups.repository';
+import { GroupsServices } from '@src/application/services/groups/groups.services';
+import GroupsEntity from '@src/domain/entities/group.entity';
 
 /** Define groups services implement */
 export class GroupsServicesImpl<Entity extends GroupsEntity> implements GroupsServices<Entity> {

@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, DeleteDateColumn } from 'typeorm';
-import GroupsRolesEntity from './groupRole.entity';
-import UsersEntity from './user.entity';
+import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
 
 /** Define group entity */
 @Entity()

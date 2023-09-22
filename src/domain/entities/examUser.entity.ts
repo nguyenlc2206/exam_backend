@@ -5,11 +5,10 @@ import {
     ManyToOne,
     Unique,
     JoinTable,
-    DeleteDateColumn,
-    Column
+    DeleteDateColumn
 } from 'typeorm';
-import UsersEntity from './user.entity';
-import ExamsEntity from './exam.entity';
+import UsersEntity from '@src/domain/entities/user.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
 
 /** Define group role entity */
 @Entity()

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { ResponseError } from '../shared/entities/error.entity';
-import { sendErrorDev, sendErrorProd } from '../shared/response-error';
+import { ResponseError } from '@src/shared/entities/error.entity';
+import { sendErrorDev, sendErrorProd } from '@src/shared/response-error/index';
 
 /** Define global error reponse for app */
 export const globalErrorConfig = (error: ResponseError, req: Request, res: Response, next: NextFunction) => {

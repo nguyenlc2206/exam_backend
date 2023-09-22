@@ -1,16 +1,16 @@
+import { UsersServices } from '@src/application/services/users/users.services';
+import UsersEntity from '@src/domain/entities/user.entity';
+import AppError from '@src/error-handling/app.error';
+import { ENV } from '@src/main/config/env.config';
+import { BcryptAdapter } from '@src/shared/bcrypt/bcryptAdapter';
+import catchAsync from '@src/shared/catch-async';
+import { HttpRequestUser, HttpRequest, UserInformation } from '@src/shared/entities/http.entity';
+import { Validation, Either, success } from '@src/shared/functions';
+import { ValidationComposite } from '@src/shared/validations';
+import { CompareFieldsValidation } from '@src/shared/validations/compare.validation';
+import { RequiredFieldValidation } from '@src/shared/validations/requiredFields';
 import { NextFunction, Response } from 'express';
 import * as _ from 'lodash';
-import { UsersServices } from '../../../application/services/users/users.services';
-import UsersEntity from '../../../domain/entities/user.entity';
-import AppError from '../../../error-handling/app.error';
-import { BcryptAdapter } from '../../../shared/bcrypt/bcryptAdapter';
-import catchAsync from '../../../shared/catch-async';
-import { HttpRequestUser, HttpRequest, UserInformation } from '../../../shared/entities/http.entity';
-import { Validation, Either, success } from '../../../shared/functions';
-import { ValidationComposite } from '../../../shared/validations';
-import { CompareFieldsValidation } from '../../../shared/validations/compare.validation';
-import { RequiredFieldValidation } from '../../../shared/validations/requiredFields';
-import { ENV } from '../../config/env.config';
 
 /** define change-password controller */
 export class ChangePasswordController {

@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, OneToMany } from 'typeorm';
-import GroupsRolesEntity from './groupRole.entity';
+import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
 
 /** Define role entity */
 @Entity()

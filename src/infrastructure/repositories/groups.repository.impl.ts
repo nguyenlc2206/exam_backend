@@ -1,9 +1,8 @@
 import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
 import * as _ from 'lodash';
-
-import AppDataSource from '../config/typeorm.config';
-import GroupsEntity from '../../domain/entities/group.entity';
-import { GroupsRepository } from '../../application/repositories/groups.repository';
+import { GroupsRepository } from '@src/application/repositories/groups.repository';
+import GroupsEntity from '@src/domain/entities/group.entity';
+import AppDataSource from '@src/infrastructure/config/typeorm.config';
 
 /** Define groups repository implement */
 export class GroupsRepositoryImpl<T extends GroupsEntity> implements GroupsRepository<T> {

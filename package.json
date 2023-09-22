@@ -8,8 +8,7 @@
     },
     "scripts": {
         "dev": "npx nodemon",
-        "build": "tsc",
-        "heroku-postbuild": "npm run build",
+        "build": "rimraf ./dist && tsc && tsc-alias",
         "start": "node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",

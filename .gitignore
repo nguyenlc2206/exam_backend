@@ -2,9 +2,5 @@
 src/infrastructure/migrations
 src/infrastructure/entities
 src/infrastructure/config/typeorm.config.ts
-<<<<<<< HEAD
 dist
 node_modules
-=======
-dist/
->>>>>>> da5f797ebcb48523838c064c5344b6791b934070

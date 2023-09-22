@@ -1,13 +1,12 @@
+import { UsersServices } from '@src/application/services/users/users.services';
+import UsersEntity from '@src/domain/entities/user.entity';
 import { NextFunction, Request, Response } from 'express';
-
-import { ChangePasswordController } from './changePassword.controller';
-import { ForgotPasswordController } from './forgotPassword.controller';
-import { GetTempoTokenController } from './getTempoToken.controller';
-import { LoginCotroller } from './login.controller';
-import { ProtectRoutesController } from './protect.controller';
-import { RefreshTokenController } from './refreshToken.controller';
-import { UsersServices } from '../../../application/services/users/users.services';
-import UsersEntity from '../../../domain/entities/user.entity';
+import { ChangePasswordController } from '@src/main/controllers/authentications/changePassword.controller';
+import { ForgotPasswordController } from '@src/main/controllers/authentications/forgotPassword.controller';
+import { GetTempoTokenController } from '@src/main/controllers/authentications/getTempoToken.controller';
+import { LoginCotroller } from '@src/main/controllers/authentications/login.controller';
+import { ProtectRoutesController } from '@src/main/controllers/authentications/protect.controller';
+import { RefreshTokenController } from '@src/main/controllers/authentications/refreshToken.controller';
 
 /** Define auth controller */
 export class AuthenticationsController {
