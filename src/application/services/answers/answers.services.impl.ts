@@ -1,5 +1,5 @@
-import { AnswersRepository } from '~/application/repositories/answers.repository';
-import AnswersEntity from '~/domain/entities/answer.entity';
+import AnswersEntity from '../../../domain/entities/answer.entity';
+import { AnswersRepository } from '../../repositories/answers.repository';
 import { AnswersServices } from './answers.services';
 
 /** define anwsers services implement */

@@ -1,5 +1,5 @@
-import { GroupsRepository } from '~/application/repositories/groups.repository';
-import GroupsEntity from '~/domain/entities/group.entity';
+import GroupsEntity from '../../../domain/entities/group.entity';
+import { GroupsRepository } from '../../repositories/groups.repository';
 import { GroupsServices } from './groups.services';
 
 /** Define groups services implement */

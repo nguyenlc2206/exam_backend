@@ -1,8 +1,9 @@
 import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
 import * as _ from 'lodash';
-import { UsersRepository } from '~/application/repositories/users.repository';
-import UsersEntity from '~/domain/entities/user.entity';
+
 import { AppDataSource } from '../config/typeorm.config';
+import { UsersRepository } from '../../application/repositories/users.repository';
+import UsersEntity from '../../domain/entities/user.entity';
 
 /** Define repository users implement */
 export class UsersRepositoryImpl<T extends UsersEntity> implements UsersRepository<T> {

@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { UsersServices } from '~/application/services/users/users.services';
-import UsersEntity from '~/domain/entities/user.entity';
 import { ChangePasswordController } from './changePassword.controller';
 import { ForgotPasswordController } from './forgotPassword.controller';
 import { GetTempoTokenController } from './getTempoToken.controller';
 import { LoginCotroller } from './login.controller';
 import { ProtectRoutesController } from './protect.controller';
 import { RefreshTokenController } from './refreshToken.controller';
+import { UsersServices } from '../../../application/services/users/users.services';
+import UsersEntity from '../../../domain/entities/user.entity';
 
 /** Define auth controller */
 export class AuthenticationsController {

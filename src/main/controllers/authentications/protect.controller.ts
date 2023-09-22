@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
-import { UsersServices } from '~/application/services/users/users.services';
-import UsersEntity from '~/domain/entities/user.entity';
-import AppError from '~/error-handling/app.error';
-import { ENV } from '~/main/config/env.config';
-import catchAsync from '~/shared/catch-async';
-import { HttpRequestUser, UserInformation, HttpRequest } from '~/shared/entities/http.entity';
-import { DecodeAccountTokenType } from '~/shared/entities/jwt.entity';
-import { Either, failure, success } from '~/shared/functions';
-import { TokenGeneratorAdapter } from '~/shared/jwt/jwtAdapter';
+import { UsersServices } from '../../../application/services/users/users.services';
+import UsersEntity from '../../../domain/entities/user.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { HttpRequestUser, UserInformation, HttpRequest } from '../../../shared/entities/http.entity';
+import { DecodeAccountTokenType } from '../../../shared/entities/jwt.entity';
+import { Either, failure, success } from '../../../shared/functions';
+import { TokenGeneratorAdapter } from '../../../shared/jwt/jwtAdapter';
+import { ENV } from '../../config/env.config';
 
 /** Define protect controller */
 export class ProtectRoutesController {

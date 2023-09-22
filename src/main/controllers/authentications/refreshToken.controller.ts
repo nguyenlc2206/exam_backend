@@ -1,12 +1,12 @@
 import { NextFunction, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import UsersEntity from '~/domain/entities/user.entity';
-import AppError from '~/error-handling/app.error';
-import { ENV } from '~/main/config/env.config';
-import catchAsync from '~/shared/catch-async';
-import { HttpRequestUser } from '~/shared/entities/http.entity';
-import { Either, success } from '~/shared/functions';
-import { TokenGeneratorAdapter } from '~/shared/jwt/jwtAdapter';
+import UsersEntity from '../../../domain/entities/user.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { HttpRequestUser } from '../../../shared/entities/http.entity';
+import { Either, success } from '../../../shared/functions';
+import { TokenGeneratorAdapter } from '../../../shared/jwt/jwtAdapter';
+import { ENV } from '../../config/env.config';
 
 /** Define refresh token controller */
 export class RefreshTokenController {

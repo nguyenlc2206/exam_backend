@@ -1,5 +1,5 @@
-import { ExamsCategoryRepository } from '~/application/repositories/exam.category.repository';
-import ExamsCategoryEntity from '~/domain/entities/exam.category.entity';
+import ExamsCategoryEntity from '../../../domain/entities/exam.category.entity';
+import { ExamsCategoryRepository } from '../../repositories/exam.category.repository';
 import { CategoryServices } from './category.services';
 
 /** Deinf category services implement */

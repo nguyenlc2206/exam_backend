@@ -1,5 +1,5 @@
-import { RolesRepository } from '~/application/repositories/roles.repository';
-import RolesEntity from '~/domain/entities/role.entity';
+import RolesEntity from '../../../domain/entities/role.entity';
+import { RolesRepository } from '../../repositories/roles.repository';
 import { RoleServices } from './roles.services';
 
 /** Implement roles services */

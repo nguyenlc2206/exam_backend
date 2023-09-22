@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { RoleServices } from '~/application/services/roles/roles.services';
-import RolesEntity from '~/domain/entities/role.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { Either, failure, success } from '~/shared/functions';
+import { RoleServices } from '../../../../application/services/roles/roles.services';
+import RolesEntity from '../../../../domain/entities/role.entity';
+import AppError from '../../../../error-handling/app.error';
+import catchAsync from '../../../../shared/catch-async';
+import { Either, failure, success } from '../../../../shared/functions';
 
 /** Define role delete controller */
 export class DeleteRoleController {

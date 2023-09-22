@@ -1,5 +1,5 @@
-import { UsersRepository } from '~/application/repositories/users.repository';
-import UsersEntity from '~/domain/entities/user.entity';
+import UsersEntity from '../../../domain/entities/user.entity';
+import { UsersRepository } from '../../repositories/users.repository';
 import { UsersServices } from './users.services';
 
 /** Define users services implement */

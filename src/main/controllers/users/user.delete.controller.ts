@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { UsersServices } from '~/application/services/users/users.services';
-import UsersEntity from '~/domain/entities/user.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { Either, failure, success } from '~/shared/functions';
+import { UsersServices } from '../../../application/services/users/users.services';
+import UsersEntity from '../../../domain/entities/user.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { Either, failure, success } from '../../../shared/functions';
 
 /** define delete user controller */
 export class DeleteUserController {

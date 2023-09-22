@@ -3,8 +3,8 @@ import express, { NextFunction, Request, Express } from 'express';
 import { expressCors } from './express.cors';
 import { rateLimit } from 'express-rate-limit';
 import { setupRoutes } from './express.routes';
-import AppError from '~/error-handling/app.error';
-import { globalErrorConfig } from '~/error-handling/global.error';
+import AppError from '../../error-handling/app.error';
+import { globalErrorConfig } from '../../error-handling/global.error';
 
 class ExpressConfig {
     private app: Express;

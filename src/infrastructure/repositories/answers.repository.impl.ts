@@ -1,7 +1,8 @@
 import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
-import { AnswersRepository } from '~/application/repositories/answers.repository';
-import AnswersEntity from '~/domain/entities/answer.entity';
+
 import { AppDataSource } from '../config/typeorm.config';
+import AnswersEntity from '../../domain/entities/answer.entity';
+import { AnswersRepository } from '../../application/repositories/answers.repository';
 
 /** define anwsers repository implement */
 export class AnwsersRepositoryImpl<T extends AnswersEntity> implements AnswersRepository<T> {

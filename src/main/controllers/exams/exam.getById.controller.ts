@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { ExamsServices } from '~/application/services/exams/exam.services';
-import ExamsEntity from '~/domain/entities/exam.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { Either, failure, success } from '~/shared/functions';
+import { ExamsServices } from '../../../application/services/exams/exam.services';
+import ExamsEntity from '../../../domain/entities/exam.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { Either, failure, success } from '../../../shared/functions';
 
 /** define class get exam by id */
 export class GetExamByIdController {

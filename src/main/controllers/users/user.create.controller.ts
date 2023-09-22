@@ -1,17 +1,17 @@
 import { NextFunction, Request, Response } from 'express';
 import * as _ from 'lodash';
-import { UsersServices } from '~/application/services/users/users.services';
-import UsersEntity from '~/domain/entities/user.entity';
-import AppError from '~/error-handling/app.error';
-import { ENV } from '~/main/config/env.config';
-import { BcryptAdapter } from '~/shared/bcrypt/bcryptAdapter';
-import catchAsync from '~/shared/catch-async';
-import { HttpRequest } from '~/shared/entities/http.entity';
-import { Validation, Either, failure, success } from '~/shared/functions';
-import { ValidationComposite } from '~/shared/validations';
-import { CompareFieldsValidation } from '~/shared/validations/compare.validation';
-import { EmailValidatorAdapter, EmailValidation } from '~/shared/validations/email.validation';
-import { RequiredFieldValidation } from '~/shared/validations/requiredFields';
+import { UsersServices } from '../../../application/services/users/users.services';
+import UsersEntity from '../../../domain/entities/user.entity';
+import AppError from '../../../error-handling/app.error';
+import { BcryptAdapter } from '../../../shared/bcrypt/bcryptAdapter';
+import catchAsync from '../../../shared/catch-async';
+import { HttpRequest } from '../../../shared/entities/http.entity';
+import { Validation, Either, failure, success } from '../../../shared/functions';
+import { ValidationComposite } from '../../../shared/validations';
+import { CompareFieldsValidation } from '../../../shared/validations/compare.validation';
+import { EmailValidatorAdapter, EmailValidation } from '../../../shared/validations/email.validation';
+import { RequiredFieldValidation } from '../../../shared/validations/requiredFields';
+import { ENV } from '../../config/env.config';
 
 /** Define create user controller */
 export class CreateUserController {

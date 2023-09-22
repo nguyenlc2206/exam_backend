@@ -1,13 +1,14 @@
 import { Router } from 'express';
-import { RoleServicesImpl } from '~/application/services/roles/roles.services.impl';
-import { UsersServicesImpl } from '~/application/services/users/users.services.impl';
-import RolesEntity from '~/domain/entities/role.entity';
-import UsersEntity from '~/domain/entities/user.entity';
-import { RolesRepositoryImpl } from '~/infrastructure/repositories/roles.repository.impl';
-import { UsersRepositoryImpl } from '~/infrastructure/repositories/users.repository.impl';
+
 import { AuthenticationsController } from '../controllers/authentications';
 import roleRestrictTo from '../controllers/authentications/permission.controller';
 import { RolesController } from '../controllers/authentications/roles';
+import { RoleServicesImpl } from '../../application/services/roles/roles.services.impl';
+import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
+import RolesEntity from '../../domain/entities/role.entity';
+import UsersEntity from '../../domain/entities/user.entity';
+import { RolesRepositoryImpl } from '../../infrastructure/repositories/roles.repository.impl';
+import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
 
 /** init repository */
 const rolesRepository = new RolesRepositoryImpl(RolesEntity);

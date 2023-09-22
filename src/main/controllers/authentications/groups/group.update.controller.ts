@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
 import * as _ from 'lodash';
-import { GroupsServices } from '~/application/services/groups/groups.services';
-import GroupsEntity from '~/domain/entities/group.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { HttpRequest } from '~/shared/entities/http.entity';
-import { Validation, Either, failure, success } from '~/shared/functions';
-import { ValidationComposite } from '~/shared/validations';
-import { RequiredFieldValidation } from '~/shared/validations/requiredFields';
+import { GroupsServices } from '../../../../application/services/groups/groups.services';
+import GroupsEntity from '../../../../domain/entities/group.entity';
+import AppError from '../../../../error-handling/app.error';
+import catchAsync from '../../../../shared/catch-async';
+import { HttpRequest } from '../../../../shared/entities/http.entity';
+import { Validation, Either, failure, success } from '../../../../shared/functions';
+import { ValidationComposite } from '../../../../shared/validations';
+import { RequiredFieldValidation } from '../../../../shared/validations/requiredFields';
 
 /** Define update group controller */
 export class UpdateGroupController {

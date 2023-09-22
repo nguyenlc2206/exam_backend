@@ -1,11 +1,11 @@
 import { NextFunction, Response } from 'express';
-import { ExamRelationUserServices } from '~/application/services/exam-user/exam.user.services';
-import ExamsEntity from '~/domain/entities/exam.entity';
-import ExamUserEntity from '~/domain/entities/examUser.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { HttpRequestUser } from '~/shared/entities/http.entity';
-import { Either, failure, success } from '~/shared/functions';
+import { ExamRelationUserServices } from '../../../application/services/exam-user/exam.user.services';
+import ExamsEntity from '../../../domain/entities/exam.entity';
+import ExamUserEntity from '../../../domain/entities/examUser.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { HttpRequestUser } from '../../../shared/entities/http.entity';
+import { Either, failure, success } from '../../../shared/functions';
 
 /** define getAll exams of user controller */
 export class GetAllExamsWithUserIdController {

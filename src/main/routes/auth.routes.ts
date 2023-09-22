@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import { UsersServicesImpl } from '~/application/services/users/users.services.impl';
-import UsersEntity from '~/domain/entities/user.entity';
-import { UsersRepositoryImpl } from '~/infrastructure/repositories/users.repository.impl';
+
 import { AuthenticationsController } from '../controllers/authentications';
 import { UsersController } from '../controllers/users';
+import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
+import UsersEntity from '../../domain/entities/user.entity';
+import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
 
 /** init repository */
 const usersRepository = new UsersRepositoryImpl(UsersEntity);

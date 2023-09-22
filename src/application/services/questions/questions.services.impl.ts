@@ -1,5 +1,5 @@
-import { QuestionsRepository } from '~/application/repositories/questions.repository';
-import QuestionsEntity from '~/domain/entities/question.entity';
+import QuestionsEntity from '../../../domain/entities/question.entity';
+import { QuestionsRepository } from '../../repositories/questions.repository';
 import { QuestionsServices } from './questions.services';
 
 /** define questions service implement */

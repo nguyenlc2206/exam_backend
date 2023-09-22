@@ -1,16 +1,16 @@
 import { NextFunction, Request, Response } from 'express';
-import { ExamRelationUserServices } from '~/application/services/exam-user/exam.user.services';
-import { ExamsServices } from '~/application/services/exams/exam.services';
-import { UsersServices } from '~/application/services/users/users.services';
-import ExamsEntity from '~/domain/entities/exam.entity';
-import ExamUserEntity from '~/domain/entities/examUser.entity';
-import UsersEntity from '~/domain/entities/user.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { HttpRequest } from '~/shared/entities/http.entity';
-import { Validation, Either, failure, success } from '~/shared/functions';
-import { ValidationComposite } from '~/shared/validations';
-import { RequiredFieldValidation } from '~/shared/validations/requiredFields';
+import { ExamRelationUserServices } from '../../../application/services/exam-user/exam.user.services';
+import { ExamsServices } from '../../../application/services/exams/exam.services';
+import { UsersServices } from '../../../application/services/users/users.services';
+import ExamsEntity from '../../../domain/entities/exam.entity';
+import ExamUserEntity from '../../../domain/entities/examUser.entity';
+import UsersEntity from '../../../domain/entities/user.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { HttpRequest } from '../../../shared/entities/http.entity';
+import { Validation, Either, failure, success } from '../../../shared/functions';
+import { ValidationComposite } from '../../../shared/validations';
+import { RequiredFieldValidation } from '../../../shared/validations/requiredFields';
 
 /** Define exam relation with user controller */
 export class CreateExamRelationUserController {

@@ -1,4 +1,4 @@
-import AppError from '~/error-handling/app.error';
+import AppError from '../../error-handling/app.error';
 import { Validation } from '../functions';
 
 export class RequiredFieldValidation implements Validation {

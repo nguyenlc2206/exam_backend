@@ -1,5 +1,5 @@
-import { ExamsRepository } from '~/application/repositories/exam.repository';
-import ExamsEntity from '~/domain/entities/exam.entity';
+import ExamsEntity from '../../../domain/entities/exam.entity';
+import { ExamsRepository } from '../../repositories/exam.repository';
 import { ExamsServices } from './exam.services';
 
 /** define exam services implement */

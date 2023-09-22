@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { QuestionsServices } from '~/application/services/questions/questions.services';
-import QuestionsEntity from '~/domain/entities/question.entity';
-import AppError from '~/error-handling/app.error';
-import catchAsync from '~/shared/catch-async';
-import { Either, failure, success } from '~/shared/functions';
+import { QuestionsServices } from '../../../application/services/questions/questions.services';
+import QuestionsEntity from '../../../domain/entities/question.entity';
+import AppError from '../../../error-handling/app.error';
+import catchAsync from '../../../shared/catch-async';
+import { Either, failure, success } from '../../../shared/functions';
 
 /** define delete question controller */
 export class DeleteQuestionController {

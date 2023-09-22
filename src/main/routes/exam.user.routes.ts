@@ -1,16 +1,17 @@
 import { Router } from 'express';
-import { ExamRelationUserServicesImpl } from '~/application/services/exam-user/exam.user.services.impl';
-import { ExamsServicesImpl } from '~/application/services/exams/exam.services.impl';
-import { UsersServicesImpl } from '~/application/services/users/users.services.impl';
-import ExamsEntity from '~/domain/entities/exam.entity';
-import ExamUserEntity from '~/domain/entities/examUser.entity';
-import UsersEntity from '~/domain/entities/user.entity';
-import { ExamsRepositoryImpl } from '~/infrastructure/repositories/exam.repository.impl';
-import { ExamRelationUserRepositoryImpl } from '~/infrastructure/repositories/exam.user.repository.impl';
-import { UsersRepositoryImpl } from '~/infrastructure/repositories/users.repository.impl';
+
 import { AuthenticationsController } from '../controllers/authentications';
 import roleRestrictTo from '../controllers/authentications/permission.controller';
 import { ExamRelationUserController } from '../controllers/exam-user';
+import { ExamRelationUserServicesImpl } from '../../application/services/exam-user/exam.user.services.impl';
+import { ExamsServicesImpl } from '../../application/services/exams/exam.services.impl';
+import { UsersServicesImpl } from '../../application/services/users/users.services.impl';
+import ExamsEntity from '../../domain/entities/exam.entity';
+import ExamUserEntity from '../../domain/entities/examUser.entity';
+import UsersEntity from '../../domain/entities/user.entity';
+import { ExamsRepositoryImpl } from '../../infrastructure/repositories/exam.repository.impl';
+import { ExamRelationUserRepositoryImpl } from '../../infrastructure/repositories/exam.user.repository.impl';
+import { UsersRepositoryImpl } from '../../infrastructure/repositories/users.repository.impl';
 
 /** init repository */
 const examsRepository = new ExamsRepositoryImpl(ExamsEntity);

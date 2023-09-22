@@ -1,5 +1,5 @@
-import { ExamRelationUserRepository } from '~/application/repositories/exam.user.repository';
-import ExamUserEntity from '~/domain/entities/examUser.entity';
+import ExamUserEntity from '../../../domain/entities/examUser.entity';
+import { ExamRelationUserRepository } from '../../repositories/exam.user.repository';
 import { ExamRelationUserServices } from './exam.user.services';
 
 /** define exam user services implement */

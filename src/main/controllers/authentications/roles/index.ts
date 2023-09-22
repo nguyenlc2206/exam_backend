@@ -4,8 +4,8 @@ import { CreateRoleController } from './role.create.controller';
 import { UpdateRoleController } from './role.update.controller';
 import { GetAllRoleController } from './role.getAll.controller';
 import { DeleteRoleController } from './role.delete.controller';
-import { RoleServices } from '~/application/services/roles/roles.services';
-import RolesEntity from '~/domain/entities/role.entity';
+import { RoleServices } from '../../../../application/services/roles/roles.services';
+import RolesEntity from '../../../../domain/entities/role.entity';
 
 /** Define make create role controller */
 export class RolesController {
