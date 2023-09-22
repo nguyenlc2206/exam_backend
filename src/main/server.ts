@@ -15,7 +15,7 @@ const main = async () => {
             const Express = new ExpressConfig(app, Number(ENV.port) || 3000);
             await Express.init();
         })
-        .catch((err) => {
+        .catch((err: any) => {
             console.error('Error during Data Source initialization', err);
         });
 };
