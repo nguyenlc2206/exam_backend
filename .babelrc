@@ -1,5 +1,5 @@
 // Cấu hình trình dịch code
 // Cài đặt babel code
 {
-    "presets": ["@babel/preset-env", "@babel/preset-typescript"]
+    "presets": ["@babel/preset-env", "@babel/preset-typescript", "@babel/plugin-transform-modules-commonjs"]
 }
