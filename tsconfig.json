@@ -10,12 +10,11 @@
         "resolveJsonModule": true,
         "strict": true /* Enable all strict type-checking options. */,
         "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-        "baseUrl": ".", // Đường dẫn base cho các import
+        "baseUrl": "./", // Đường dẫn base cho các import
         "paths": {
             "~/*": ["src/*"] // Đường dẫn tương đối cho các import (alias)
         },
         "allowSyntheticDefaultImports": true,
-        "rootDirs": ["./src"],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "strictPropertyInitialization": false,
@@ -23,7 +22,8 @@
         "declaration": true,
         // Ensure that Babel can safely transpile files in the TypeScript project
         "isolatedModules": true,
-        "noEmit": true
+        "noEmit": true,
+        "forceConsistentCasingInFileNames": true
     },
     "ts-node": {
         "require": ["tsconfig-paths/register"]

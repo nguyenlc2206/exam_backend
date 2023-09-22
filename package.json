@@ -8,7 +8,8 @@
     },
     "scripts": {
         "dev": "npx nodemon",
-        "build": "tsc && tsc-alias",
+        "postinstall": "tsc",
+        "build": "tsc",
         "start": "node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
