@@ -7,7 +7,7 @@
         "node": "16.x"
     },
     "scripts": {
-        "start": "node dist/main/server.js",
+        "start": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node dist/main/server.js",
         "postinstall": "tsc",
         "build": "rimraf ./dist && tsc",
         "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
