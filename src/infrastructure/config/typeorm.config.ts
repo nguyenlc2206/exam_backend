@@ -1,14 +1,15 @@
 import { DataSource } from "typeorm";
 import { config } from "dotenv";
 
-import { GroupRoleTableInit1694934157356 } from "../migrations/1694934157356-GroupRoleTableInit";
-import { RolesTableInit1694934273856 } from "../migrations/1694934273856-RolesTableInit";
-import { GroupsTableInit1694934066735 } from "../migrations/1694934066735-GroupsTableInit";
-import { UsersTableInit1694931638143 } from "../migrations/1695130922313-UsersTableInit";
-import { ExamCategoryTableInit1695178172833 } from "../migrations/1695178172833-ExamCategoryTableInit";
-import { AnswerTableInit1695182365708 } from "../migrations/1695182365708-AnswerTableInit";
-import { ExamTableInit1695181192602 } from "../migrations/1695181192602-ExamTableInit";
-import { QuestionTableInit1695181612280 } from "../migrations/1695181612280-QuestionTableInit";
+// import { GroupRoleTableInit1694934157356 } from "../migrations/1694934157356-GroupRoleTableInit";
+// import { RolesTableInit1694934273856 } from "../migrations/1694934273856-RolesTableInit";
+// import { GroupsTableInit1694934066735 } from "../migrations/1694934066735-GroupsTableInit";
+// import { UsersTableInit1694931638143 } from "../migrations/1695130922313-UsersTableInit";
+// import { ExamCategoryTableInit1695178172833 } from "../migrations/1695178172833-ExamCategoryTableInit";
+// import { AnswerTableInit1695182365708 } from "../migrations/1695182365708-AnswerTableInit";
+// import { ExamTableInit1695181192602 } from "../migrations/1695181192602-ExamTableInit";
+// import { QuestionTableInit1695181612280 } from "../migrations/1695181612280-QuestionTableInit";
+// import { ExamUserTableInit1695217649175 } from "../migrations/1695217649175-ExamUserTableInit";
 
 import GroupsEntity from "../../domain/entities/group.entity";
 import RolesEntity from "../../domain/entities/role.entity";
@@ -19,7 +20,6 @@ import AnswersEntity from "../../domain/entities/answer.entity";
 import ExamsEntity from "../../domain/entities/exam.entity";
 import QuestionsEntity from "../../domain/entities/question.entity";
 import ExamUserEntity from "../../domain/entities/examUser.entity";
-import { ExamUserTableInit1695217649175 } from "../migrations/1695217649175-ExamUserTableInit";
 
 config();
 
@@ -68,7 +68,7 @@ export const AppDataSource = new DataSource({
         // GroupsTableInit1694934066735,
         // RolesTableInit1694934273856,
         // GroupRoleTableInit1694934157356,
-        UsersTableInit1694931638143,
+        // UsersTableInit1694931638143,
         // ExamCategoryTableInit1695178172833,
         // AnswerTableInit1695182365708,
         // ExamTableInit1695181192602,
