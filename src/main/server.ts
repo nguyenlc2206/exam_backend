@@ -14,7 +14,7 @@ const main = async () => {
             await Express.init();
         })
         .catch((err) => {
-            console.error("Error during Data Source initialization", err);
+            // console.error("Error during Data Source initialization", err);
         });
 };
 
