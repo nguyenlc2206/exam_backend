@@ -1,12 +1,12 @@
-import { CategoryServices } from "@src/application/services/categories/category.services";
-import ExamsCategoryEntity from "@src/domain/entities/exam.category.entity";
-import AppError from "@src/error-handling/app.error";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest } from "@src/shared/entities/http.entity";
-import { Either, Validation, failure, success } from "@src/shared/functions";
-import { ValidationComposite } from "@src/shared/validations";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
 import { NextFunction, Request, Response } from "express";
+import { CategoryServices } from "src/application/services/categories/category.services";
+import ExamsCategoryEntity from "src/domain/entities/exam.category.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest } from "src/shared/entities/http.entity";
+import { Either, Validation, failure, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** Define create category controller */
 export class CreateCategoryController {

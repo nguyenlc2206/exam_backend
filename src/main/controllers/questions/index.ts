@@ -1,12 +1,12 @@
-import { ExamsServices } from "@src/application/services/exams/exam.services";
-import { QuestionsServices } from "@src/application/services/questions/questions.services";
 import { NextFunction, Request, Response } from "express";
 
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import QuestionsEntity from "@src/domain/entities/question.entity";
 import { CreateQuestionController } from "./question.create.controller";
 import { DeleteQuestionController } from "./question.delete.controller";
 import { GetAllQuestionsController } from "./question.getAll.controller";
+import { ExamsServices } from "src/application/services/exams/exam.services";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import { QuestionsServices } from "src/application/services/questions/questions.services";
+import QuestionsEntity from "src/domain/entities/question.entity";
 
 /** define questions controller */
 export class QuestionsController {

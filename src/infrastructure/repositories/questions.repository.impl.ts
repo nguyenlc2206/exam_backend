@@ -1,9 +1,9 @@
 import { EntityTarget, FindOptionsWhere, Repository } from "typeorm";
 import * as _ from "lodash";
 
-import { QuestionsRepository } from "@src/application/repositories/questions.repository";
-import QuestionsEntity from "@src/domain/entities/question.entity";
 import { AppDataSource } from "../config/typeorm.config";
+import QuestionsEntity from "src/domain/entities/question.entity";
+import { QuestionsRepository } from "src/application/repositories/questions.repository";
 
 /** define questions repository implement */
 export class QuestionsRepositoryImpl<T extends QuestionsEntity>

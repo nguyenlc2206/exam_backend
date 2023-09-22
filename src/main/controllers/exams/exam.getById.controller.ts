@@ -1,11 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-
-import { ExamsServices } from "@src/application/services/exams/exam.services";
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequestUser } from "@src/shared/entities/http.entity";
-import AppError from "@src/error-handling/app.error";
-import { Either, failure, success } from "@src/shared/functions";
+import { ExamsServices } from "src/application/services/exams/exam.services";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { Either, failure, success } from "src/shared/functions";
 
 /** define class get exam by id */
 export class GetExamByIdController {

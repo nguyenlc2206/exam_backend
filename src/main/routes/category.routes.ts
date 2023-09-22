@@ -2,12 +2,12 @@ import { Router } from "express";
 import roleRestrictTo from "../controllers/authentications/permission.controller";
 import { AuthenticationsController } from "../controllers/authentications";
 import { CategoryController } from "../controllers/categories";
-import { UsersServicesImpl } from "@src/application/services/users/users.services.impl";
-import { CategoryServicesImpl } from "@src/application/services/categories/category.services.impl";
-import { ExamsCategoryRepositoryImpl } from "@src/infrastructure/repositories/exam.category.repository.impl";
-import ExamsCategoryEntity from "@src/domain/entities/exam.category.entity";
-import UsersEntity from "@src/domain/entities/user.entity";
-import { UsersRepositoryImpl } from "@src/infrastructure/repositories/users.repository.impl";
+import { ExamsCategoryRepositoryImpl } from "src/infrastructure/repositories/exam.category.repository.impl";
+import ExamsCategoryEntity from "src/domain/entities/exam.category.entity";
+import { UsersRepositoryImpl } from "src/infrastructure/repositories/users.repository.impl";
+import UsersEntity from "src/domain/entities/user.entity";
+import { CategoryServicesImpl } from "src/application/services/categories/category.services.impl";
+import { UsersServicesImpl } from "src/application/services/users/users.services.impl";
 
 /** init repository */
 const categoriesRepository = new ExamsCategoryRepositoryImpl(

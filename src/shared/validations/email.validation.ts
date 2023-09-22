@@ -1,6 +1,6 @@
 import validator from "validator";
 import { Validation } from "../functions";
-import AppError from "@src/error-handling/app.error";
+import AppError from "src/error-handling/app.error";
 
 export interface EmailValidator {
     isValid: (email: string) => boolean;

@@ -1,9 +1,9 @@
-import { GroupsServices } from "@src/application/services/groups/groups.services";
-import GroupsEntity from "@src/domain/entities/group.entity";
 import { NextFunction, Request, Response } from "express";
 import { CreateGroupController } from "./group.create.controller";
 import { UpdateGroupController } from "./group.update.controller";
 import { GetAllGroupsController } from "./group.getAll.controller";
+import { GroupsServices } from "src/application/services/groups/groups.services";
+import GroupsEntity from "src/domain/entities/group.entity";
 
 /** Define groups controller */
 export class GroupsController {

@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from "express";
-import { CategoryServices } from "@src/application/services/categories/category.services";
-import { ExamsServices } from "@src/application/services/exams/exam.services";
-import ExamsCategoryEntity from "@src/domain/entities/exam.category.entity";
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import AppError from "@src/error-handling/app.error";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest, HttpRequestUser } from "@src/shared/entities/http.entity";
-import { Either, Validation, failure, success } from "@src/shared/functions";
-import { ValidationComposite } from "@src/shared/validations";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
+import { CategoryServices } from "src/application/services/categories/category.services";
+import { ExamsServices } from "src/application/services/exams/exam.services";
+import ExamsCategoryEntity from "src/domain/entities/exam.category.entity";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest, HttpRequestUser } from "src/shared/entities/http.entity";
+import { Either, Validation, failure, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** define create exam controller */
 export class CreateExamController {

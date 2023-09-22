@@ -1,5 +1,3 @@
-import { UsersServices } from "@src/application/services/users/users.services";
-import UsersEntity from "@src/domain/entities/user.entity";
 import { NextFunction, Request, Response } from "express";
 import { LoginCotroller } from "./login.controller";
 import { ProtectRoutesController } from "./protect.controller";
@@ -7,6 +5,8 @@ import { ChangePasswordController } from "./changePassword.controller";
 import { GetTempoTokenController } from "./getTempoToken.controller";
 import { ForgotPasswordController } from "./forgotPassword.controller";
 import { RefreshTokenController } from "./refreshToken.controller";
+import { UsersServices } from "src/application/services/users/users.services";
+import UsersEntity from "src/domain/entities/user.entity";
 
 /** Define auth controller */
 export class AuthenticationsController {

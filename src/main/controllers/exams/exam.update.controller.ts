@@ -1,13 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-
-import { ExamsServices } from "@src/application/services/exams/exam.services";
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest } from "@src/shared/entities/http.entity";
-import { Either, Validation, failure, success } from "@src/shared/functions";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
-import { ValidationComposite } from "@src/shared/validations";
-import AppError from "@src/error-handling/app.error";
+import { ExamsServices } from "src/application/services/exams/exam.services";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest } from "src/shared/entities/http.entity";
+import { Either, Validation, failure, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** define update exam controller */
 export class UpdateExamController {

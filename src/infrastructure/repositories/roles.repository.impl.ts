@@ -1,9 +1,9 @@
 import { EntityTarget, FindOptionsWhere, Repository } from "typeorm";
 import * as _ from "lodash";
 
-import { RolesRepository } from "@src/application/repositories/roles.repository";
-import RolesEntity from "@src/domain/entities/role.entity";
 import { AppDataSource } from "../config/typeorm.config";
+import RolesEntity from "src/domain/entities/role.entity";
+import { RolesRepository } from "src/application/repositories/roles.repository";
 
 /** Define role repository impl */
 export class RolesRepositoryImpl<T extends RolesEntity>

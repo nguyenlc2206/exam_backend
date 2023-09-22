@@ -1,10 +1,11 @@
 import { NextFunction, Request, Response } from "express";
-import { RoleServices } from "@src/application/services/roles/roles.services";
-import RolesEntity from "@src/domain/entities/role.entity";
+
 import { CreateRoleController } from "./role.create.controller";
 import { UpdateRoleController } from "./role.update.controller";
 import { GetAllRoleController } from "./role.getAll.controller";
 import { DeleteRoleController } from "./role.delete.controller";
+import { RoleServices } from "src/application/services/roles/roles.services";
+import RolesEntity from "src/domain/entities/role.entity";
 
 /** Define make create role controller */
 export class RolesController {

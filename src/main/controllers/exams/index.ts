@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 
-import { ExamsServices } from "@src/application/services/exams/exam.services";
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import { CreateExamController } from "./exam.create.controller";
-import { CategoryServices } from "@src/application/services/categories/category.services";
-import ExamsCategoryEntity from "@src/domain/entities/exam.category.entity";
 import { UpdateExamController } from "./exam.update.controller";
 import { GetAllExamsController } from "./exam.getAll.controller";
 import { GetExamByIdController } from "./exam.getById.controller";
+import { ExamsServices } from "src/application/services/exams/exam.services";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import { CategoryServices } from "src/application/services/categories/category.services";
+import ExamsCategoryEntity from "src/domain/entities/exam.category.entity";
+import { CreateExamController } from "./exam.create.controller";
 
 /** define exams controller */
 export class ExamsController {

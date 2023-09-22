@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import { UsersServicesImpl } from "@src/application/services/users/users.services.impl";
-import UsersEntity from "@src/domain/entities/user.entity";
-import { UsersRepositoryImpl } from "@src/infrastructure/repositories/users.repository.impl";
 import { UsersController } from "../controllers/users";
 import roleRestrictTo from "../controllers/authentications/permission.controller";
 import { AuthenticationsController } from "../controllers/authentications";
+import { UsersServicesImpl } from "src/application/services/users/users.services.impl";
+import UsersEntity from "src/domain/entities/user.entity";
+import { UsersRepositoryImpl } from "src/infrastructure/repositories/users.repository.impl";
 
 /** init repository */
 const usersRepository = new UsersRepositoryImpl(UsersEntity);

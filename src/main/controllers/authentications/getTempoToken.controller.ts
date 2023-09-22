@@ -1,18 +1,17 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-
-import { UsersServices } from "@src/application/services/users/users.services";
-import UsersEntity from "@src/domain/entities/user.entity";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest } from "@src/shared/entities/http.entity";
-import { Either, Validation, failure, success } from "@src/shared/functions";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
-import { ValidationComposite } from "@src/shared/validations";
+import { UsersServices } from "src/application/services/users/users.services";
+import UsersEntity from "src/domain/entities/user.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest } from "src/shared/entities/http.entity";
+import { Either, Validation, failure, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
 import {
     EmailValidation,
     EmailValidatorAdapter,
-} from "@src/shared/validations/email.validation";
-import AppError from "@src/error-handling/app.error";
+} from "src/shared/validations/email.validation";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** Define get tempo token controller */
 export class GetTempoTokenController {

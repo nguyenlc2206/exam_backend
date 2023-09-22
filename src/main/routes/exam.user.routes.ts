@@ -1,17 +1,17 @@
 import { Router } from "express";
 
-import { ExamRelationUserServicesImpl } from "@src/application/services/exam-user/exam.user.services.impl";
-import { ExamsServicesImpl } from "@src/application/services/exams/exam.services.impl";
-import { UsersServicesImpl } from "@src/application/services/users/users.services.impl";
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import ExamUserEntity from "@src/domain/entities/examUser.entity";
-import UsersEntity from "@src/domain/entities/user.entity";
-import { ExamsRepositoryImpl } from "@src/infrastructure/repositories/exam.repository.impl";
-import { ExamRelationUserRepositoryImpl } from "@src/infrastructure/repositories/exam.user.repository.impl";
-import { UsersRepositoryImpl } from "@src/infrastructure/repositories/users.repository.impl";
 import { AuthenticationsController } from "../controllers/authentications";
 import roleRestrictTo from "../controllers/authentications/permission.controller";
 import { ExamRelationUserController } from "../controllers/exam-user";
+import { ExamsRepositoryImpl } from "src/infrastructure/repositories/exam.repository.impl";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import { UsersRepositoryImpl } from "src/infrastructure/repositories/users.repository.impl";
+import UsersEntity from "src/domain/entities/user.entity";
+import { ExamRelationUserRepositoryImpl } from "src/infrastructure/repositories/exam.user.repository.impl";
+import ExamUserEntity from "src/domain/entities/examUser.entity";
+import { ExamsServicesImpl } from "src/application/services/exams/exam.services.impl";
+import { UsersServicesImpl } from "src/application/services/users/users.services.impl";
+import { ExamRelationUserServicesImpl } from "src/application/services/exam-user/exam.user.services.impl";
 
 /** init repository */
 const examsRepository = new ExamsRepositoryImpl(ExamsEntity);

@@ -1,18 +1,17 @@
 import { NextFunction, Request, Response } from "express";
-
-import { UsersServices } from "@src/application/services/users/users.services";
-import UsersEntity from "@src/domain/entities/user.entity";
-import catchAsync from "@src/shared/catch-async";
+import { UsersServices } from "src/application/services/users/users.services";
+import UsersEntity from "src/domain/entities/user.entity";
+import AppError from "src/error-handling/app.error";
+import { ENV } from "src/main/config/env.config";
+import catchAsync from "src/shared/catch-async";
 import {
     HttpRequest,
     HttpRequestUser,
     UserInformation,
-} from "@src/shared/entities/http.entity";
-import { Either, failure, success } from "@src/shared/functions";
-import AppError from "@src/error-handling/app.error";
-import { ENV } from "@src/main/config/env.config";
-import { TokenGeneratorAdapter } from "@src/shared/jwt/jwtAdapter";
-import { DecodeAccountTokenType } from "@src/shared/entities/jwt.entity";
+} from "src/shared/entities/http.entity";
+import { DecodeAccountTokenType } from "src/shared/entities/jwt.entity";
+import { Either, failure, success } from "src/shared/functions";
+import { TokenGeneratorAdapter } from "src/shared/jwt/jwtAdapter";
 
 /** Define protect controller */
 export class ProtectRoutesController {

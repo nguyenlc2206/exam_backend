@@ -1,21 +1,20 @@
 import { NextFunction, Response } from "express";
 import * as _ from "lodash";
-
-import { UsersServices } from "@src/application/services/users/users.services";
-import UsersEntity from "@src/domain/entities/user.entity";
-import AppError from "@src/error-handling/app.error";
-import { ENV } from "@src/main/config/env.config";
-import { BcryptAdapter } from "@src/shared/bcrypt/bcryptAdapter";
-import catchAsync from "@src/shared/catch-async";
+import { UsersServices } from "src/application/services/users/users.services";
+import UsersEntity from "src/domain/entities/user.entity";
+import AppError from "src/error-handling/app.error";
+import { ENV } from "src/main/config/env.config";
+import { BcryptAdapter } from "src/shared/bcrypt/bcryptAdapter";
+import catchAsync from "src/shared/catch-async";
 import {
     HttpRequest,
     HttpRequestUser,
     UserInformation,
-} from "@src/shared/entities/http.entity";
-import { Either, Validation, success } from "@src/shared/functions";
-import { ValidationComposite } from "@src/shared/validations";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
-import { CompareFieldsValidation } from "@src/shared/validations/compare.validation";
+} from "src/shared/entities/http.entity";
+import { Either, Validation, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
+import { CompareFieldsValidation } from "src/shared/validations/compare.validation";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** define change-password controller */
 export class ChangePasswordController {

@@ -1,17 +1,16 @@
 import { NextFunction, Request, Response } from "express";
-
-import { ExamRelationUserServices } from "@src/application/services/exam-user/exam.user.services";
-import { ExamsServices } from "@src/application/services/exams/exam.services";
-import { UsersServices } from "@src/application/services/users/users.services";
-import ExamsEntity from "@src/domain/entities/exam.entity";
-import ExamUserEntity from "@src/domain/entities/examUser.entity";
-import UsersEntity from "@src/domain/entities/user.entity";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest } from "@src/shared/entities/http.entity";
-import { Either, Validation, failure, success } from "@src/shared/functions";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
-import { ValidationComposite } from "@src/shared/validations";
-import AppError from "@src/error-handling/app.error";
+import { ExamRelationUserServices } from "src/application/services/exam-user/exam.user.services";
+import { ExamsServices } from "src/application/services/exams/exam.services";
+import { UsersServices } from "src/application/services/users/users.services";
+import ExamsEntity from "src/domain/entities/exam.entity";
+import ExamUserEntity from "src/domain/entities/examUser.entity";
+import UsersEntity from "src/domain/entities/user.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest } from "src/shared/entities/http.entity";
+import { Either, Validation, failure, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** Define exam relation with user controller */
 export class CreateExamRelationUserController {

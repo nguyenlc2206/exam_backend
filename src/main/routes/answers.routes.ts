@@ -1,17 +1,17 @@
 import { Router } from "express";
 
-import { AnwsersServicesImpl } from "@src/application/services/answers/answers.services.impl";
-import { QuestionsServicesImpl } from "@src/application/services/questions/questions.services.impl";
-import { UsersServicesImpl } from "@src/application/services/users/users.services.impl";
-import AnswersEntity from "@src/domain/entities/answer.entity";
-import QuestionsEntity from "@src/domain/entities/question.entity";
-import UsersEntity from "@src/domain/entities/user.entity";
-import { AnwsersRepositoryImpl } from "@src/infrastructure/repositories/answers.repository.impl";
-import { QuestionsRepositoryImpl } from "@src/infrastructure/repositories/questions.repository.impl";
-import { UsersRepositoryImpl } from "@src/infrastructure/repositories/users.repository.impl";
 import { AnswersController } from "../controllers/answers";
 import { AuthenticationsController } from "../controllers/authentications";
 import roleRestrictTo from "../controllers/authentications/permission.controller";
+import { QuestionsRepositoryImpl } from "src/infrastructure/repositories/questions.repository.impl";
+import QuestionsEntity from "src/domain/entities/question.entity";
+import { AnwsersRepositoryImpl } from "src/infrastructure/repositories/answers.repository.impl";
+import AnswersEntity from "src/domain/entities/answer.entity";
+import { UsersRepositoryImpl } from "src/infrastructure/repositories/users.repository.impl";
+import UsersEntity from "src/domain/entities/user.entity";
+import { QuestionsServicesImpl } from "src/application/services/questions/questions.services.impl";
+import { AnwsersServicesImpl } from "src/application/services/answers/answers.services.impl";
+import { UsersServicesImpl } from "src/application/services/users/users.services.impl";
 
 /** init repository */
 const questionsRepository = new QuestionsRepositoryImpl(QuestionsEntity);

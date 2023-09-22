@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import * as _ from "lodash";
 
-import { AnswersServices } from "@src/application/services/answers/answers.services";
-import { QuestionsServices } from "@src/application/services/questions/questions.services";
-import AnswersEntity from "@src/domain/entities/answer.entity";
-import QuestionsEntity from "@src/domain/entities/question.entity";
-import AppError from "@src/error-handling/app.error";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest } from "@src/shared/entities/http.entity";
-import { Either, failure, success } from "@src/shared/functions";
+import { AnswersServices } from "src/application/services/answers/answers.services";
+import { QuestionsServices } from "src/application/services/questions/questions.services";
+import AnswersEntity from "src/domain/entities/answer.entity";
+import QuestionsEntity from "src/domain/entities/question.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest } from "src/shared/entities/http.entity";
+import { Either, failure, success } from "src/shared/functions";
 
 /** define create anwsers controller */
 export class CreateAnwserController {

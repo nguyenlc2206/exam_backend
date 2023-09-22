@@ -1,10 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-
-import catchAsync from "@src/shared/catch-async";
-import { CategoryServices } from "@src/application/services/categories/category.services";
-import ExamsCategoryEntity from "@src/domain/entities/exam.category.entity";
-import { Either, success } from "@src/shared/functions";
-import AppError from "@src/error-handling/app.error";
+import { CategoryServices } from "src/application/services/categories/category.services";
+import ExamsCategoryEntity from "src/domain/entities/exam.category.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { Either, success } from "src/shared/functions";
 
 /** defind getAll controller */
 export class GetAllCategoryController {

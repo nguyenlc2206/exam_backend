@@ -1,12 +1,12 @@
-import { RoleServices } from "@src/application/services/roles/roles.services";
-import RolesEntity from "@src/domain/entities/role.entity";
-import AppError from "@src/error-handling/app.error";
-import catchAsync from "@src/shared/catch-async";
-import { HttpRequest } from "@src/shared/entities/http.entity";
-import { Either, Validation, failure, success } from "@src/shared/functions";
-import { ValidationComposite } from "@src/shared/validations";
-import { RequiredFieldValidation } from "@src/shared/validations/requiredFields";
 import { NextFunction, Request, Response } from "express";
+import { RoleServices } from "src/application/services/roles/roles.services";
+import RolesEntity from "src/domain/entities/role.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { HttpRequest } from "src/shared/entities/http.entity";
+import { Either, Validation, failure, success } from "src/shared/functions";
+import { ValidationComposite } from "src/shared/validations";
+import { RequiredFieldValidation } from "src/shared/validations/requiredFields";
 
 /** Define create role controller */
 export class CreateRoleController {

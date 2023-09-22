@@ -1,6 +1,6 @@
-import QuestionsEntity from "@src/domain/entities/question.entity";
+import { QuestionsRepository } from "src/application/repositories/questions.repository";
 import { QuestionsServices } from "./questions.services";
-import { QuestionsRepository } from "@src/application/repositories/questions.repository";
+import QuestionsEntity from "src/domain/entities/question.entity";
 
 /** define questions service implement */
 export class QuestionsServicesImpl<Entity extends QuestionsEntity>

@@ -1,10 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-
-import { UsersServices } from "@src/application/services/users/users.services";
-import UsersEntity from "@src/domain/entities/user.entity";
-import AppError from "@src/error-handling/app.error";
-import catchAsync from "@src/shared/catch-async";
-import { Either, success } from "@src/shared/functions";
+import { UsersServices } from "src/application/services/users/users.services";
+import UsersEntity from "src/domain/entities/user.entity";
+import AppError from "src/error-handling/app.error";
+import catchAsync from "src/shared/catch-async";
+import { Either, success } from "src/shared/functions";
 
 /** Define role getAll controller */
 export class GetAllUsersController {

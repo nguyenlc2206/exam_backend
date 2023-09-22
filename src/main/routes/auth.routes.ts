@@ -1,9 +1,9 @@
-import { UsersServicesImpl } from "@src/application/services/users/users.services.impl";
-import UsersEntity from "@src/domain/entities/user.entity";
-import { UsersRepositoryImpl } from "@src/infrastructure/repositories/users.repository.impl";
 import { Router } from "express";
 import { UsersController } from "../controllers/users";
 import { AuthenticationsController } from "../controllers/authentications";
+import UsersEntity from "src/domain/entities/user.entity";
+import { UsersRepositoryImpl } from "src/infrastructure/repositories/users.repository.impl";
+import { UsersServicesImpl } from "src/application/services/users/users.services.impl";
 
 /** init repository */
 const usersRepository = new UsersRepositoryImpl(UsersEntity);

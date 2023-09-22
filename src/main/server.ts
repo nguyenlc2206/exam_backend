@@ -3,7 +3,7 @@ import compression from "compression";
 
 import { ExpressConfig } from "./config/express.config";
 import { ENV } from "./config/env.config";
-import { AppDataSource } from "@src/infrastructure/config/typeorm.config";
+import { AppDataSource } from "src/infrastructure/config/typeorm.config";
 
 /** Define main function */
 const main = async () => {

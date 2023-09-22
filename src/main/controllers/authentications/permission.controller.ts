@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-
-import AppError from "@src/error-handling/app.error";
-import { HttpRequestUser } from "@src/shared/entities/http.entity";
+import AppError from "src/error-handling/app.error";
+import { HttpRequestUser } from "src/shared/entities/http.entity";
 
 export type RolesType = {
     [index: number]: string;
