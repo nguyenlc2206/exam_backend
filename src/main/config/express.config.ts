@@ -4,7 +4,7 @@ import { expressCors } from "./express.cors";
 import { rateLimit } from "express-rate-limit";
 import { setupRoutes } from "./express.routes";
 import AppError from "src/error-handling/app.error";
-import { globalErrorConfig } from "src/error-handling";
+import { globalErrorConfig } from "src/error-handling/global.error";
 
 export class ExpressConfig {
     private app: Express;
