@@ -1,6 +1,6 @@
 import { EntityTarget, FindOptionsRelations, FindOptionsWhere, Repository } from 'typeorm';
 
-import { AppDataSource } from '../config/typeorm.config';
+import AppDataSource from '../config/typeorm.config';
 import ExamUserEntity from '../../domain/entities/examUser.entity';
 import { ExamRelationUserRepository } from '../../application/repositories/exam.user.repository';
 

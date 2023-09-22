@@ -1,6 +1,6 @@
 import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
 
-import { AppDataSource } from '../config/typeorm.config';
+import AppDataSource from '../config/typeorm.config';
 import ExamsCategoryEntity from '../../domain/entities/exam.category.entity';
 import { ExamsCategoryRepository } from '../../application/repositories/exam.category.repository';
 

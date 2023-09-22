@@ -1,7 +1,7 @@
 import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
 import * as _ from 'lodash';
 
-import { AppDataSource } from '../config/typeorm.config';
+import AppDataSource from '../config/typeorm.config';
 import GroupsEntity from '../../domain/entities/group.entity';
 import { GroupsRepository } from '../../application/repositories/groups.repository';
 
