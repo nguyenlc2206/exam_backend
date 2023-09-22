@@ -7,7 +7,7 @@ import { AppDataSource } from '../infrastructure/config/typeorm.config';
 
 /** Define main function */
 const main = async () => {
-    await AppDataSource.initialize()
+    await AppDataSource.connect()
         .then(async () => {
             console.log('Connected to database');
             const app = express();
