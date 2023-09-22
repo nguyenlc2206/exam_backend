@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import { HashComparer, Hasher } from '../entities/hash.entity';
 
 export class BcryptAdapter implements Hasher, HashComparer {
