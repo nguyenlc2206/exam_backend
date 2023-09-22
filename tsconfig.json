@@ -14,7 +14,8 @@
         "allowSyntheticDefaultImports": true,
         "rootDirs": ["./src"],
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "strictPropertyInitialization": false
     },
     "ts-node": {
         "require": ["tsconfig-paths/register"]
