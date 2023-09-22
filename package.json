@@ -2,12 +2,12 @@
     "name": "exam_project",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/main/server.ts",
     "engines": {
         "node": "16.x"
     },
     "scripts": {
-        "start": "cross-env NODE_ENV=production tsnd -r tsconfig-paths/register --respawn --ignore-watch node dist/index.js",
+        "start": "node dist/index.js",
         "postinstall": "tsc",
         "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "prod": "cross-env NODE_ENV=production tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
