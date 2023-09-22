@@ -1,39 +1,32 @@
-import {
-    Column,
-    CreateDateColumn,
-    DeleteDateColumn,
-    Entity,
-    OneToMany,
-    PrimaryGeneratedColumn,
-} from "typeorm";
-import ExamsEntity from "./exam.entity";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import ExamsEntity from './exam.entity'
 
 /** Define exam category */
 @Entity()
 class ExamsCategoryEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
-    @Column({ unique: true, type: "varchar", length: 50 })
-    name: string;
-
-    @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
-    })
-    createdAt: Date;
+    @Column({ unique: true, type: 'varchar', length: 50 })
+    name: string
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date;
+    createdAt: Date
+
+    @CreateDateColumn({
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
+    })
+    updatedAt: Date
 
     @DeleteDateColumn()
-    deletedAt: Date;
+    deletedAt: Date
 
     @OneToMany(() => ExamsEntity, (exam) => exam.category)
-    exams: ExamsEntity[];
+    exams: ExamsEntity[]
 }
 
-export default ExamsCategoryEntity;
+export default ExamsCategoryEntity

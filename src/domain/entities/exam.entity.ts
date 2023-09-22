@@ -6,66 +6,66 @@ import {
     JoinTable,
     ManyToOne,
     OneToMany,
-    PrimaryGeneratedColumn,
-} from "typeorm";
-import UsersEntity from "./user.entity";
-import ExamsCategoryEntity from "./exam.category.entity";
-import ExamUserEntity from "./examUser.entity";
-import QuestionsEntity from "./question.entity";
+    PrimaryGeneratedColumn
+} from 'typeorm'
+import UsersEntity from './user.entity'
+import ExamsCategoryEntity from './exam.category.entity'
+import ExamUserEntity from './examUser.entity'
+import QuestionsEntity from './question.entity'
 
 /** Define exam entity */
 @Entity()
 class ExamsEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
-    @Column({ type: "varchar", length: 100 })
-    title: string;
+    @Column({ type: 'varchar', length: 100 })
+    title: string
 
-    @Column({ nullable: true, type: "varchar" })
-    image: string;
+    @Column({ nullable: true, type: 'varchar' })
+    image: string
 
     @Column({
-        default: true,
+        default: true
     })
-    status: boolean;
+    status: boolean
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date;
+    createdAt: Date
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date;
+    updatedAt: Date
 
     @DeleteDateColumn()
-    deletedAt: Date;
+    deletedAt: Date
 
     @ManyToOne(() => UsersEntity, (user) => user.exams, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE'
     })
     @JoinTable({
-        name: "userId",
+        name: 'userId'
     })
-    user: UsersEntity;
+    user: UsersEntity
 
     @ManyToOne(() => ExamsCategoryEntity, (user) => user.exams, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE'
     })
     @JoinTable({
-        name: "categoryId",
+        name: 'categoryId'
     })
-    category: ExamsCategoryEntity;
+    category: ExamsCategoryEntity
 
     @OneToMany(() => ExamUserEntity, (examUser) => examUser.exam)
-    examUser: ExamUserEntity[];
+    examUser: ExamUserEntity[]
 
     @OneToMany(() => QuestionsEntity, (question) => question.exam)
-    questions: QuestionsEntity[];
+    questions: QuestionsEntity[]
 }
 
-export default ExamsEntity;
+export default ExamsEntity

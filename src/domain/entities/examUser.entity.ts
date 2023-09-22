@@ -6,48 +6,48 @@ import {
     Unique,
     JoinTable,
     DeleteDateColumn,
-    Column,
-} from "typeorm";
-import UsersEntity from "./user.entity";
-import ExamsEntity from "./exam.entity";
+    Column
+} from 'typeorm'
+import UsersEntity from './user.entity'
+import ExamsEntity from './exam.entity'
 
 /** Define group role entity */
 @Entity()
-@Unique(["user", "exam"])
+@Unique(['user', 'exam'])
 class ExamUserEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date;
+    createdAt: Date
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date;
+    updatedAt: Date
 
     @DeleteDateColumn()
-    deletedAt: Date;
+    deletedAt: Date
 
     @ManyToOne(() => UsersEntity, (user) => user.examUser, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE'
     })
     @JoinTable({
-        name: "userId",
+        name: 'userId'
     })
-    user: UsersEntity;
+    user: UsersEntity
 
     @ManyToOne(() => ExamsEntity, (exam) => exam.examUser, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE'
     })
     @JoinTable({
-        name: "examId",
+        name: 'examId'
     })
-    exam: ExamsEntity;
+    exam: ExamsEntity
 }
 
-export default ExamUserEntity;
+export default ExamUserEntity

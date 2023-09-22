@@ -2,3 +2,5 @@
 src/infrastructure/migrations
 src/infrastructure/entities
 src/infrastructure/config/typeorm.config.ts
+node_modules/
+dist/

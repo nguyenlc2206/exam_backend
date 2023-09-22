@@ -1,6 +1,6 @@
 /** Define validation function */
 export interface Validation {
-    validate(input: any): void | Error;
+    validate(input: any): void | Error
 }
 
 /** Define success and failure */
@@ -8,11 +8,11 @@ class Success<S, F> {
     constructor(readonly data: S) {}
 
     isSuccess(): this is Success<S, F> {
-        return true;
+        return true
     }
 
     isFailure(): this is Failure<S, F> {
-        return false;
+        return false
     }
 }
 
@@ -20,20 +20,20 @@ class Failure<S, F> {
     constructor(readonly error: F) {}
 
     isSuccess(): this is Success<S, F> {
-        return false;
+        return false
     }
 
     isFailure(): this is Failure<S, F> {
-        return true;
+        return true
     }
 }
 
 export const success = <S, F>(data: S): Either<S, F> => {
-    return new Success(data);
-};
+    return new Success(data)
+}
 
 export const failure = <S, F>(error: F): Either<S, F> => {
-    return new Failure(error);
-};
+    return new Failure(error)
+}
 
-export type Either<S, F> = Success<S, F> | Failure<S, F>;
+export type Either<S, F> = Success<S, F> | Failure<S, F>

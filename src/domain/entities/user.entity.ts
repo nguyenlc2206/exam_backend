@@ -7,79 +7,79 @@ import {
     Unique,
     JoinTable,
     DeleteDateColumn,
-    OneToMany,
-} from "typeorm";
-import GroupsEntity from "./group.entity";
-import ExamsEntity from "./exam.entity";
-import ExamUserEntity from "./examUser.entity";
+    OneToMany
+} from 'typeorm'
+import GroupsEntity from './group.entity'
+import ExamsEntity from './exam.entity'
+import ExamUserEntity from './examUser.entity'
 
-export const UNIQUE_USER_EMAIL_CONSTRAINT = "unique_user_email_constraint";
+export const UNIQUE_USER_EMAIL_CONSTRAINT = 'unique_user_email_constraint'
 /** Define user entity */
 @Entity()
-@Unique(UNIQUE_USER_EMAIL_CONSTRAINT, ["email"])
+@Unique(UNIQUE_USER_EMAIL_CONSTRAINT, ['email'])
 class UsersEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
-    @Column({ nullable: true, type: "varchar", length: 30 })
-    username: string;
+    @Column({ nullable: true, type: 'varchar', length: 30 })
+    username: string
 
-    @Column({ nullable: true, type: "varchar", length: 200 })
-    avatar: string;
+    @Column({ nullable: true, type: 'varchar', length: 200 })
+    avatar: string
 
-    @Column({ nullable: true, type: "varchar", length: 25 })
-    phoneNumber: string;
+    @Column({ nullable: true, type: 'varchar', length: 25 })
+    phoneNumber: string
 
-    @Column({ type: "varchar", length: 40 })
-    email: string;
+    @Column({ type: 'varchar', length: 40 })
+    email: string
 
-    @Column({ type: "varchar", length: 200, select: false })
-    password: string;
+    @Column({ type: 'varchar', length: 200, select: false })
+    password: string
 
     @Column({
-        default: true,
+        default: true
     })
-    status: boolean;
+    status: boolean
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date;
+    createdAt: Date
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date;
+    updatedAt: Date
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    passwordChangedAt: Date;
+    passwordChangedAt: Date
 
     @DeleteDateColumn()
-    deletedAt: Date;
+    deletedAt: Date
 
     @Column({
-        name: "groupId",
-        type: "varchar",
-        default: "46fa1172-8262-411e-85ef-8367f01be058",
+        name: 'groupId',
+        type: 'varchar',
+        default: '46fa1172-8262-411e-85ef-8367f01be058'
     })
     @ManyToOne(() => GroupsEntity, (group) => group.users, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE'
     })
     @JoinTable({
-        name: "groupId",
+        name: 'groupId'
     })
-    group: GroupsEntity;
+    group: GroupsEntity
 
     @OneToMany(() => ExamsEntity, (exam) => exam.user)
-    exams: UsersEntity[];
+    exams: UsersEntity[]
 
     @OneToMany(() => ExamUserEntity, (examUser) => examUser.user)
-    examUser: ExamUserEntity[];
+    examUser: ExamUserEntity[]
 }
 
-export default UsersEntity;
+export default UsersEntity

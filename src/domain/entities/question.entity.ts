@@ -6,59 +6,59 @@ import {
     JoinTable,
     ManyToOne,
     OneToMany,
-    PrimaryGeneratedColumn,
-} from "typeorm";
-import ExamsEntity from "./exam.entity";
-import AnswersEntity from "./answer.entity";
+    PrimaryGeneratedColumn
+} from 'typeorm'
+import ExamsEntity from './exam.entity'
+import AnswersEntity from './answer.entity'
 
 /** Define question entity */
 @Entity()
 class QuestionsEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id: string;
+    @PrimaryGeneratedColumn('uuid')
+    id: string
 
-    @Column({ type: "varchar" })
-    title: string;
+    @Column({ type: 'varchar' })
+    title: string
 
-    @Column({ type: "varchar" })
-    subTitle: string;
+    @Column({ type: 'varchar' })
+    subTitle: string
 
-    @Column({ nullable: true, type: "varchar" })
-    image: string;
+    @Column({ nullable: true, type: 'varchar' })
+    image: string
 
     @Column({
-        default: true,
+        default: true
     })
-    status: boolean;
+    status: boolean
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date;
+    createdAt: Date
 
     @CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(7)",
+        type: 'timestamptz',
+        default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date;
+    updatedAt: Date
 
     @DeleteDateColumn()
-    deletedAt: Date;
+    deletedAt: Date
 
     @ManyToOne(() => ExamsEntity, (exam) => exam.questions, {
-        onDelete: "CASCADE",
+        onDelete: 'CASCADE'
     })
     @JoinTable({
-        name: "examId",
+        name: 'examId'
     })
-    exam: ExamsEntity;
+    exam: ExamsEntity
 
     @OneToMany(() => AnswersEntity, (answer) => answer.question)
-    answers: AnswersEntity[];
+    answers: AnswersEntity[]
 
-    @Column({ nullable: true, type: "uuid" })
-    answerCorrectId: string;
+    @Column({ nullable: true, type: 'uuid' })
+    answerCorrectId: string
 }
 
-export default QuestionsEntity;
+export default QuestionsEntity
