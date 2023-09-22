@@ -7,8 +7,8 @@
         "node": "16.x"
     },
     "scripts": {
-        "start": "cross-env NODE_ENV=production node dist/main/server.js",
-        "build": "rimraf ./dist && tsc && tsc-alias",
+        "start": "node dist/main/server.js",
+        "build": "rimraf ./dist && tsc",
         "postinstall": "tsc",
         "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "debug": "cross-env NODE_ENV=development tsnd --inspect=0.0.0.0:9222 --nolazy -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
