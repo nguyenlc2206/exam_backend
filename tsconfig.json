@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "CommonJS", // Quy định output module được sử dụng
-        "moduleResolution": "Node",
-        "target": "ES2016", // Target output cho code
+        "module": "commonjs", // Quy định output module được sử dụng
+        // "moduleResolution": "Node",
+        "target": "es2016", // Target output cho code
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
         "strict": true /* Enable all strict type-checking options. */,
@@ -15,11 +15,12 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "strictPropertyInitialization": false
+        "strictPropertyInitialization": false,
+        "forceConsistentCasingInFileNames": true
     },
     "exclude": ["node_modules", "dist"],
     "ts-node": {
         "require": ["tsconfig-paths/register"]
     },
-    "include": ["src"] // Đường dẫn include cho các file cần build
+    "include": ["src/**/*.ts"] // Đường dẫn include cho các file cần build
 }
