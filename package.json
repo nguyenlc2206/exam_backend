@@ -7,11 +7,10 @@
         "node": "16.x"
     },
     "scripts": {
-        "build": "rimraf dist && tsc -p tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
         "start": "cross-env NODE_ENV=production node dist/main/server.js",
+        "build": "rimraf dist && tsc -p tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./dist",
         "postinstall": "tsc",
         "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
-        "prod": "cross-env NODE_ENV=production tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "debug": "cross-env NODE_ENV=development tsnd --inspect=0.0.0.0:9222 --nolazy -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "typeorm": "ts-node ./node_modules/typeorm/cli",
         "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./src/infrastructure/config/typeorm.config.ts",
@@ -33,6 +32,7 @@
         "jsonwebtoken": "^9.0.2",
         "lodash": "^4.17.21",
         "pg": "^8.11.3",
+        "rimraf": "^5.0.1",
         "ts-node-dev": "^2.0.0",
         "tsconfig-paths": "^4.2.0",
         "typeorm": "^0.3.17",
