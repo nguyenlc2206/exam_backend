@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "esnext", // Quy định output module được sử dụng
+        "module": "ESNext", // Quy định output module được sử dụng
         "moduleResolution": "node",
         "types": ["node"],
         "target": "esnext", // Target output cho code
@@ -20,7 +20,10 @@
     },
     "exclude": ["node_modules", "dist"],
     "ts-node": {
-        "require": ["tsconfig-paths/register"]
+        "require": ["tsconfig-paths/register"],
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
     },
     "include": ["./src/**/*.ts"] // Đường dẫn include cho các file cần build
 }
