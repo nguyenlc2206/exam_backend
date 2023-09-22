@@ -1,6 +1,3 @@
 .env
-src/infrastructure/migrations
-src/infrastructure/entities
-src/infrastructure/config/typeorm.config.ts
 dist
 node_modules
