@@ -5,11 +5,12 @@
     "main": "src/main/server.ts",
     "type": "module",
     "engines": {
-        "node": "12.16.3"
+        "node": "16.x"
     },
     "scripts": {
         "dev": "npx nodemon",
-        "postinstall": "tsc",
+        "build-ts": "tsc",
+        "postinstall": "npm run build-ts",
         "start": "node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
@@ -66,6 +67,7 @@
         "rimraf": "^5.0.1",
         "ts-node": "^10.9.1",
         "tsc-alias": "^1.8.8",
-        "tsconfig-paths": "^4.2.0"
+        "tsconfig-paths": "^4.2.0",
+        "tscpaths": "^0.0.9"
     }
 }
