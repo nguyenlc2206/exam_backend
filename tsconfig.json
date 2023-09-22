@@ -1,9 +1,8 @@
 {
     "compilerOptions": {
-        "module": "Node16", // Quy định output module được sử dụng
-        "moduleResolution": "Node16",
-        "target": "es2016", // Target output cho code
-        "lib": ["es2019"],
+        "module": "CommonJS", // Quy định output module được sử dụng
+        "moduleResolution": "Node",
+        "target": "ES6", // Target output cho code
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
         "strict": true /* Enable all strict type-checking options. */,

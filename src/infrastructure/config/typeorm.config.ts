@@ -11,7 +11,7 @@ import { ENV } from '~/main/config/env.config';
 // import { AnswerTableInit1695182365708 } from '../migrations/1695182365708-AnswerTableInit';
 // import { ExamUserTableInit1695217649175 } from '../migrations/1695217649175-ExamUserTableInit';
 // import { UsersTableInit1694931638143 } from '../migrations/1695130922313-UsersTableInit';
-// import { MigrationsInit1695373731840 } from '../migrations/1695373731840-MigrationsInit';
+// import { MigrationInit1695385298921 } from '../migrations/1695385298921-MigrationInit';
 
 config();
 
@@ -47,16 +47,16 @@ export const AppDataSource = new DataSource({
     entities: ['src/domain/entities/**/*.ts'],
     migrations: ['src/infrastructure/migrations/**/*.ts']
     // migrations: [
-    //     MigrationsInit1695373731840,
-    //     GroupsTableInit1694934066735,
-    //     RolesTableInit1694934273856,
-    //     GroupRoleTableInit1694934157356,
-    //     UsersTableInit1694931638143,
-    //     ExamCategoryTableInit1695178172833,
-    //     AnswerTableInit1695182365708,
-    //     ExamTableInit1695181192602,
-    //     QuestionTableInit1695181612280,
-    //     ExamUserTableInit1695217649175
+    // MigrationInit1695385298921
+    // GroupsTableInit1694934066735,
+    // RolesTableInit1694934273856,
+    // GroupRoleTableInit1694934157356,
+    // UsersTableInit1694931638143
+    // ExamCategoryTableInit1695178172833,
+    // AnswerTableInit1695182365708,
+    // ExamTableInit1695181192602,
+    // QuestionTableInit1695181612280,
+    // ExamUserTableInit1695217649175
     // ]
     // subscribers: ["src/infrastructure/subscribers/**/*.ts"],
 });
