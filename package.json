@@ -3,14 +3,12 @@
     "version": "1.0.0",
     "description": "",
     "main": "src/main/server.ts",
-    "type": "module",
     "engines": {
         "node": "16.x"
     },
     "scripts": {
         "dev": "npx nodemon",
-        "build-ts": "tsc",
-        "postinstall": "npm run build-ts",
+        "postinstall": "tsc",
         "start": "node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
