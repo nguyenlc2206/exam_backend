@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "commonjs", // Quy định output module được sử dụng
-        "moduleResolution": "Node",
-        "target": "ES2022", // Target output cho code
+        "module": "es6", // Quy định output module được sử dụng
+        "moduleResolution": "node",
+        "target": "esnext", // Target output cho code
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
         "strict": true /* Enable all strict type-checking options. */,
