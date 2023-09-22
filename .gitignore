@@ -1,4 +1,4 @@
 .env
 src/infrastructure/migrations
 src/infrastructure/entities
-src/infrastructure/typeorm.config.ts
+src/infrastructure/config/typeorm.config.ts
