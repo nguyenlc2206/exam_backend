@@ -14,7 +14,6 @@
         "lint:fix": "eslint . --fix",
         "prettier": "prettier --check .",
         "prettier:fix": "prettier --write .",
-        "babel": "babel src/main/server.ts --out-file dist/bundle.js",
         "typeorm": "ts-node ./node_modules/typeorm/cli",
         "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./src/infrastructure/config/typeorm.config.ts",
         "typeorm:generate-migration": "npm run typeorm -- -d ./src/infrastructure/config/typeorm.config.ts migration:generate ./src/infrastructure/migrations/%npm_config_name%",
