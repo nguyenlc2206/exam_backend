@@ -22,29 +22,38 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateRoleController = void 0;
 const _ = __importStar(require("lodash"));
-const app_error_1 = __importDefault(require("~/error-handling/app.error"));
-const catch_async_1 = __importDefault(require("~/shared/catch-async"));
-const functions_1 = require("~/shared/functions");
-const validations_1 = require("~/shared/validations");
-const requiredFields_1 = require("~/shared/validations/requiredFields");
+const app_error_1 = __importDefault(require("../../../../error-handling/app.error"));
+const catch_async_1 = __importDefault(require("../../../../shared/catch-async"));
+const functions_1 = require("../../../../shared/functions");
+const validations_1 = require("../../../../shared/validations");
+const requiredFields_1 = require("../../../../shared/validations/requiredFields");
 /** Define update role controller */
 class UpdateRoleController {
     constructor(_roleService) {
         this._roleService = _roleService;
         /** define execute function */
-        this.execute = (0, catch_async_1.default)(async (req, res, next) => {
+        this.execute = (0, catch_async_1.default)((req, res, next) => __awaiter(this, void 0, void 0, function* () {
             /** @todo: validation fields */
             const validationsError = this.handleValidations(req);
             if (validationsError)
                 return next(validationsError);
             /** @todo: check id, url */
-            const checkIdError = await this.handleGetRoleById(req.body.id);
+            const checkIdError = yield this.handleGetRoleById(req.body.id);
             if (checkIdError.isFailure())
                 return next(checkIdError.error);
             // console.log(">>>Check checkIdError:", checkIdError.data);
@@ -52,7 +61,7 @@ class UpdateRoleController {
             const { id: _id, url: _url } = checkIdError.data;
             if (_url === req.body.url)
                 return next(new app_error_1.default('Url is same with current url!', 400));
-            const _itemUpdate = await this.handleUpdateRole(checkIdError.data, req.body.url);
+            const _itemUpdate = yield this.handleUpdateRole(checkIdError.data, req.body.url);
             if (_itemUpdate.isFailure())
                 return next(_itemUpdate.error);
             /** @todo: processing reponse */
@@ -63,7 +72,7 @@ class UpdateRoleController {
                     item: _itemUpdate.data
                 }
             });
-        });
+        }));
         /** @todo: validation fields */
         this.handleValidations = (request) => {
             /** get information */
@@ -79,23 +88,19 @@ class UpdateRoleController {
             return validationComposite.validate(body);
         };
         /** @todo: get information role by id */
-        this.handleGetRoleById = async (id) => {
-            const itemGet = await this._roleService.getById(id);
+        this.handleGetRoleById = (id) => __awaiter(this, void 0, void 0, function* () {
+            const itemGet = yield this._roleService.getById(id);
             if (!itemGet)
                 return (0, functions_1.failure)(new app_error_1.default('Id role not exists!', 400));
             return (0, functions_1.success)(itemGet);
-        };
+        });
         /** @todo: process update role */
-        this.handleUpdateRole = async (item, url) => {
+        this.handleUpdateRole = (item, url) => __awaiter(this, void 0, void 0, function* () {
             const _cloneItem = _.cloneDeep(item);
-            const _itemUpdate = {
-                ..._cloneItem,
-                url: url,
-                updatedAt: new Date(Date.now())
-            };
-            const itemUpdate = await this._roleService.update(_itemUpdate);
+            const _itemUpdate = Object.assign(Object.assign({}, _cloneItem), { url: url, updatedAt: new Date(Date.now()) });
+            const itemUpdate = yield this._roleService.update(_itemUpdate);
             return (0, functions_1.success)(itemUpdate);
-        };
+        });
     }
 }
 exports.UpdateRoleController = UpdateRoleController;

@@ -22,40 +22,49 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUserController = void 0;
 const _ = __importStar(require("lodash"));
-const app_error_1 = __importDefault(require("~/error-handling/app.error"));
-const env_config_1 = require("~/main/config/env.config");
-const bcryptAdapter_1 = require("~/shared/bcrypt/bcryptAdapter");
-const catch_async_1 = __importDefault(require("~/shared/catch-async"));
-const functions_1 = require("~/shared/functions");
-const validations_1 = require("~/shared/validations");
-const compare_validation_1 = require("~/shared/validations/compare.validation");
-const email_validation_1 = require("~/shared/validations/email.validation");
-const requiredFields_1 = require("~/shared/validations/requiredFields");
+const app_error_1 = __importDefault(require("../../../error-handling/app.error"));
+const bcryptAdapter_1 = require("../../../shared/bcrypt/bcryptAdapter");
+const catch_async_1 = __importDefault(require("../../../shared/catch-async"));
+const functions_1 = require("../../../shared/functions");
+const validations_1 = require("../../../shared/validations");
+const compare_validation_1 = require("../../../shared/validations/compare.validation");
+const email_validation_1 = require("../../../shared/validations/email.validation");
+const requiredFields_1 = require("../../../shared/validations/requiredFields");
+const env_config_1 = require("../../config/env.config");
 /** Define create user controller */
 class CreateUserController {
     constructor(_userService) {
         this._userService = _userService;
         /** define execute function */
-        this.execute = (0, catch_async_1.default)(async (req, res, next) => {
+        this.execute = (0, catch_async_1.default)((req, res, next) => __awaiter(this, void 0, void 0, function* () {
             var _a;
             /** @todo: validation field */
             const validationError = this.handleValidation(req);
             if (validationError)
                 return next(validationError);
             /** @todo: check email exists */
-            const checkEmailResult = await this.hanleCheckEmailExists(req.body.email);
+            const checkEmailResult = yield this.hanleCheckEmailExists(req.body.email);
             if (checkEmailResult.isFailure())
                 return next(checkEmailResult.error);
             /** @todo: check deletedAt not null */
             if ((_a = checkEmailResult.data) === null || _a === void 0 ? void 0 : _a.deletedAt) {
                 /** @todo: restore user to database */
-                const restoreResult = await this.handleRestoreUser(checkEmailResult.data.id);
+                const restoreResult = yield this.handleRestoreUser(checkEmailResult.data.id);
                 if (restoreResult.isFailure())
                     return next(restoreResult.error);
                 /** @todo: processing reponse */
@@ -66,14 +75,14 @@ class CreateUserController {
                 });
             }
             /** @todo: hash password */
-            const hashPasswordResult = await this.handleHashPassword(req.body.password);
+            const hashPasswordResult = yield this.handleHashPassword(req.body.password);
             if (hashPasswordResult.isFailure())
                 return next(hashPasswordResult.error);
             const { data: _hashPassword } = hashPasswordResult;
             /** @todo: save user to database */
             const _cloneUser = _.cloneDeep(req.body);
-            const _userCreate = { ..._cloneUser, password: _hashPassword };
-            const newUser = await this.handleCreateUser(_userCreate);
+            const _userCreate = Object.assign(Object.assign({}, _cloneUser), { password: _hashPassword });
+            const newUser = yield this.handleCreateUser(_userCreate);
             if (newUser.isFailure())
                 return next(newUser.error);
             /** @todo: processing reponse */
@@ -84,7 +93,7 @@ class CreateUserController {
                     user: _.omit(newUser.data, ['password', 'passwordConfirm'])
                 }
             });
-        });
+        }));
         /** @todo: validation field */
         this.handleValidation = (request) => {
             /** get information */
@@ -106,29 +115,29 @@ class CreateUserController {
             return validationComposite.validate(body);
         };
         /** @todo: check email exists */
-        this.hanleCheckEmailExists = async (email) => {
-            const userFinded = await this._userService.getUserByEmail(email);
+        this.hanleCheckEmailExists = (email) => __awaiter(this, void 0, void 0, function* () {
+            const userFinded = yield this._userService.getUserByEmail(email);
             if (userFinded && !(userFinded === null || userFinded === void 0 ? void 0 : userFinded.deletedAt))
                 return (0, functions_1.failure)(new app_error_1.default('Email is already in database!', 400));
             return (0, functions_1.success)(userFinded);
-        };
+        });
         /** @todo: hash password */
-        this.handleHashPassword = async (password) => {
+        this.handleHashPassword = (password) => __awaiter(this, void 0, void 0, function* () {
             const { bcryptSalt } = env_config_1.ENV;
             const hasher = new bcryptAdapter_1.BcryptAdapter(bcryptSalt);
-            const hashedPassword = await hasher.hash(password);
+            const hashedPassword = yield hasher.hash(password);
             return (0, functions_1.success)(hashedPassword);
-        };
+        });
         /** @todo: save user to database */
-        this.handleCreateUser = async (item) => {
-            const newItem = await this._userService.create(item);
+        this.handleCreateUser = (item) => __awaiter(this, void 0, void 0, function* () {
+            const newItem = yield this._userService.create(item);
             return (0, functions_1.success)(newItem);
-        };
+        });
         /** @todo: restore user to database */
-        this.handleRestoreUser = async (id) => {
-            const itemRestore = await this._userService.restore(id);
+        this.handleRestoreUser = (id) => __awaiter(this, void 0, void 0, function* () {
+            const itemRestore = yield this._userService.restore(id);
             return (0, functions_1.success)(itemRestore);
-        };
+        });
     }
 }
 exports.CreateUserController = CreateUserController;

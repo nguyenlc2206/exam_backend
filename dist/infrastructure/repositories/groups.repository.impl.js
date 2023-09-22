@@ -22,48 +22,70 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GroupsRepositoryImpl = void 0;
 const _ = __importStar(require("lodash"));
-const typeorm_config_1 = require("../config/typeorm.config");
+const typeorm_config_1 = __importDefault(require("../config/typeorm.config"));
 /** Define groups repository implement */
 class GroupsRepositoryImpl {
     constructor(Entity) {
         this.Entity = Entity;
-        this.repository = typeorm_config_1.AppDataSource.getRepository(this.Entity);
+        this.repository = typeorm_config_1.default.getRepository(this.Entity);
     }
     /** overiding create method */
-    async create(entity) {
-        const entityCreate = this.repository.save(entity);
-        return entityCreate;
+    create(entity) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const entityCreate = this.repository.save(entity);
+            return entityCreate;
+        });
     }
     /** overiding getByName method */
-    async getByName(name) {
-        const criterias = { where: { name: name } };
-        const entity = await this.repository.findOne(criterias);
-        if (!entity)
-            return undefined;
-        return entity;
+    getByName(name) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const criterias = { where: { name: name } };
+            const entity = yield this.repository.findOne(criterias);
+            if (!entity)
+                return undefined;
+            return entity;
+        });
     }
     /** overding getById method */
-    async getById(id) {
-        const criterias = { where: { id: id } };
-        const entity = await this.repository.findOne(criterias);
-        if (!entity)
-            return undefined;
-        return entity;
+    getById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const criterias = { where: { id: id } };
+            const entity = yield this.repository.findOne(criterias);
+            if (!entity)
+                return undefined;
+            return entity;
+        });
     }
     /** overiding update method */
-    async update(entity) {
-        const _cloneEntity = _.cloneDeep(entity);
-        const _itemUpdate = _.omit(_cloneEntity, ['id']);
-        await this.repository.update(entity === null || entity === void 0 ? void 0 : entity.id, _itemUpdate);
-        return entity;
+    update(entity) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const _cloneEntity = _.cloneDeep(entity);
+            const _itemUpdate = _.omit(_cloneEntity, ['id']);
+            yield this.repository.update(entity === null || entity === void 0 ? void 0 : entity.id, _itemUpdate);
+            return entity;
+        });
     }
     /** overding getAll method */
-    async getAll() {
-        const entities = await this.repository.find();
-        return entities;
+    getAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const entities = yield this.repository.find();
+            return entities;
+        });
     }
 }
 exports.GroupsRepositoryImpl = GroupsRepositoryImpl;

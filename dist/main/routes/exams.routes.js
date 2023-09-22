@@ -4,18 +4,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.examsRoutesSetup = void 0;
-const category_services_impl_1 = require("~/application/services/categories/category.services.impl");
-const exam_services_impl_1 = require("~/application/services/exams/exam.services.impl");
-const users_services_impl_1 = require("~/application/services/users/users.services.impl");
-const exam_category_entity_1 = __importDefault(require("~/domain/entities/exam.category.entity"));
-const exam_entity_1 = __importDefault(require("~/domain/entities/exam.entity"));
-const user_entity_1 = __importDefault(require("~/domain/entities/user.entity"));
-const exam_category_repository_impl_1 = require("~/infrastructure/repositories/exam.category.repository.impl");
-const exam_repository_impl_1 = require("~/infrastructure/repositories/exam.repository.impl");
-const users_repository_impl_1 = require("~/infrastructure/repositories/users.repository.impl");
 const authentications_1 = require("../controllers/authentications");
 const permission_controller_1 = __importDefault(require("../controllers/authentications/permission.controller"));
 const exams_1 = require("../controllers/exams");
+const category_services_impl_1 = require("../../application/services/categories/category.services.impl");
+const exam_services_impl_1 = require("../../application/services/exams/exam.services.impl");
+const users_services_impl_1 = require("../../application/services/users/users.services.impl");
+const exam_category_entity_1 = __importDefault(require("../../domain/entities/exam.category.entity"));
+const exam_entity_1 = __importDefault(require("../../domain/entities/exam.entity"));
+const user_entity_1 = __importDefault(require("../../domain/entities/user.entity"));
+const exam_category_repository_impl_1 = require("../../infrastructure/repositories/exam.category.repository.impl");
+const exam_repository_impl_1 = require("../../infrastructure/repositories/exam.repository.impl");
+const users_repository_impl_1 = require("../../infrastructure/repositories/users.repository.impl");
 /** init repository */
 const examsRepository = new exam_repository_impl_1.ExamsRepositoryImpl(exam_entity_1.default);
 const usersRepository = new users_repository_impl_1.UsersRepositoryImpl(user_entity_1.default);

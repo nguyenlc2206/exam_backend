@@ -1,24 +1,33 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeleteAnswerController = void 0;
-const app_error_1 = __importDefault(require("~/error-handling/app.error"));
-const catch_async_1 = __importDefault(require("~/shared/catch-async"));
-const functions_1 = require("~/shared/functions");
+const app_error_1 = __importDefault(require("../../../error-handling/app.error"));
+const catch_async_1 = __importDefault(require("../../../shared/catch-async"));
+const functions_1 = require("../../../shared/functions");
 /** define delete answers controller */
 class DeleteAnswerController {
     constructor(_answerService) {
         this._answerService = _answerService;
         /** execute function */
-        this.execute = (0, catch_async_1.default)(async (req, res, next) => {
+        this.execute = (0, catch_async_1.default)((req, res, next) => __awaiter(this, void 0, void 0, function* () {
             /** @todo: check id is exists in database */
-            const checkIdError = await this.handleCheckIdExists(req.params.id);
+            const checkIdError = yield this.handleCheckIdExists(req.params.id);
             if (checkIdError.isFailure())
                 return next(checkIdError.error);
             /** @todo: processing delete */
-            const deleteAnswerResult = await this.handleDeleteAnswer(req.params.id);
+            const deleteAnswerResult = yield this.handleDeleteAnswer(req.params.id);
             if (deleteAnswerResult.isFailure())
                 return next(deleteAnswerResult.error);
             /** @todo: processing reponse */
@@ -27,19 +36,19 @@ class DeleteAnswerController {
                 message: 'Delete answer is success',
                 data: {}
             });
-        });
+        }));
         /** @todo: check id is exists in database */
-        this.handleCheckIdExists = async (id) => {
-            const itemGetById = await this._answerService.getById(id);
+        this.handleCheckIdExists = (id) => __awaiter(this, void 0, void 0, function* () {
+            const itemGetById = yield this._answerService.getById(id);
             if (!itemGetById)
                 return (0, functions_1.failure)(new app_error_1.default('Answer id is not exists!', 400));
             return (0, functions_1.success)(itemGetById);
-        };
+        });
         /** @todo: processing delete */
-        this.handleDeleteAnswer = async (id) => {
-            await this._answerService.delete(id);
+        this.handleDeleteAnswer = (id) => __awaiter(this, void 0, void 0, function* () {
+            yield this._answerService.delete(id);
             return (0, functions_1.success)(true);
-        };
+        });
     }
 }
 exports.DeleteAnswerController = DeleteAnswerController;

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmailValidation = exports.EmailValidatorAdapter = void 0;
 const validator_1 = __importDefault(require("validator"));
-const app_error_1 = __importDefault(require("~/error-handling/app.error"));
+const app_error_1 = __importDefault(require("../../error-handling/app.error"));
 class EmailValidatorAdapter {
     isValid(email) {
         return validator_1.default.isEmail(email);

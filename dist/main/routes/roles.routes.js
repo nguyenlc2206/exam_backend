@@ -4,15 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rolesRoutesSetup = void 0;
-const roles_services_impl_1 = require("~/application/services/roles/roles.services.impl");
-const users_services_impl_1 = require("~/application/services/users/users.services.impl");
-const role_entity_1 = __importDefault(require("~/domain/entities/role.entity"));
-const user_entity_1 = __importDefault(require("~/domain/entities/user.entity"));
-const roles_repository_impl_1 = require("~/infrastructure/repositories/roles.repository.impl");
-const users_repository_impl_1 = require("~/infrastructure/repositories/users.repository.impl");
 const authentications_1 = require("../controllers/authentications");
 const permission_controller_1 = __importDefault(require("../controllers/authentications/permission.controller"));
 const roles_1 = require("../controllers/authentications/roles");
+const roles_services_impl_1 = require("../../application/services/roles/roles.services.impl");
+const users_services_impl_1 = require("../../application/services/users/users.services.impl");
+const role_entity_1 = __importDefault(require("../../domain/entities/role.entity"));
+const user_entity_1 = __importDefault(require("../../domain/entities/user.entity"));
+const roles_repository_impl_1 = require("../../infrastructure/repositories/roles.repository.impl");
+const users_repository_impl_1 = require("../../infrastructure/repositories/users.repository.impl");
 /** init repository */
 const rolesRepository = new roles_repository_impl_1.RolesRepositoryImpl(role_entity_1.default);
 const usersRepository = new users_repository_impl_1.UsersRepositoryImpl(user_entity_1.default);

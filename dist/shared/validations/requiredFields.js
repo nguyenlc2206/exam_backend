@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RequiredFieldValidation = void 0;
-const app_error_1 = __importDefault(require("~/error-handling/app.error"));
+const app_error_1 = __importDefault(require("../../error-handling/app.error"));
 class RequiredFieldValidation {
     constructor(fieldName) {
         this.fieldName = fieldName;

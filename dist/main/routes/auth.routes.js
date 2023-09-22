@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authRoutesSetup = void 0;
-const users_services_impl_1 = require("~/application/services/users/users.services.impl");
-const user_entity_1 = __importDefault(require("~/domain/entities/user.entity"));
-const users_repository_impl_1 = require("~/infrastructure/repositories/users.repository.impl");
 const authentications_1 = require("../controllers/authentications");
 const users_1 = require("../controllers/users");
+const users_services_impl_1 = require("../../application/services/users/users.services.impl");
+const user_entity_1 = __importDefault(require("../../domain/entities/user.entity"));
+const users_repository_impl_1 = require("../../infrastructure/repositories/users.repository.impl");
 /** init repository */
 const usersRepository = new users_repository_impl_1.UsersRepositoryImpl(user_entity_1.default);
 /** init service */
