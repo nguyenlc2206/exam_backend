@@ -7,7 +7,7 @@
         "node": "16.x"
     },
     "scripts": {
-        "start": "cross-env NODE_ENV=production node src/main/server.ts",
+        "start": "cross-env NODE_ENV=production tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "dev": "cross-env NODE_ENV=development tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "prod": "cross-env NODE_ENV=production tsnd -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
         "debug": "cross-env NODE_ENV=development tsnd --inspect=0.0.0.0:9222 --nolazy -r tsconfig-paths/register --respawn --ignore-watch node_modules src/main/server.ts",
