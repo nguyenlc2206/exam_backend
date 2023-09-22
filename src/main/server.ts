@@ -1,4 +1,5 @@
 import express from "express";
+import compression from "compression";
 
 import { ExpressConfig } from "./config/express.config";
 import { ENV } from "./config/env.config";
@@ -10,6 +11,7 @@ const main = async () => {
         .then(async () => {
             console.log("Connected to database");
             const app = express();
+            app.use(compression());
             const Express = new ExpressConfig(app, Number(ENV.port) || 3000);
             await Express.init();
         })
