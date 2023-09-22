@@ -18,7 +18,12 @@
         "rootDirs": ["./src"],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "strictPropertyInitialization": false
+        "strictPropertyInitialization": false,
+        // Ensure that .d.ts files are created by tsc, but not .js files
+        "declaration": true,
+        // Ensure that Babel can safely transpile files in the TypeScript project
+        "isolatedModules": true,
+        "noEmit": true
     },
     "ts-node": {
         "require": ["tsconfig-paths/register"]
