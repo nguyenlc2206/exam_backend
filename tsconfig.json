@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "es6", // Quy định output module được sử dụng
+        "module": "commonjs", // Quy định output module được sử dụng
         "moduleResolution": "node",
-        "target": "esnext", // Target output cho code
+        "target": "es5", // Target output cho code
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
         "strict": true /* Enable all strict type-checking options. */,
@@ -15,8 +15,8 @@
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "strictPropertyInitialization": false
-        // "noEmit": true
+        "strictPropertyInitialization": false,
+        "lib": ["es2016", "dom", "es5"]
     },
     "ts-node": {
         "require": ["tsconfig-paths/register"],

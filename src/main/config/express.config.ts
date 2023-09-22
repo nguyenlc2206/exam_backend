@@ -6,7 +6,7 @@ import { setupRoutes } from './express.routes';
 import AppError from '~/error-handling/app.error';
 import { globalErrorConfig } from '~/error-handling/global.error';
 
-export class ExpressConfig {
+class ExpressConfig {
     private app: Express;
     private port: number;
 
@@ -52,3 +52,5 @@ export class ExpressConfig {
         }
     }
 }
+
+export default ExpressConfig;
