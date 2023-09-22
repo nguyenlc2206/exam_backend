@@ -1,13 +1,12 @@
 import express from 'express';
 import compression from 'compression';
-
-import { ExpressConfig } from './config/express.config';
+import { AppDataSource } from '~/infrastructure/config/typeorm.config';
 import { ENV } from './config/env.config';
-import { AppDataSource } from '../infrastructure/config/typeorm.config';
+import { ExpressConfig } from './config/express.config';
 
 /** Define main function */
 const main = async () => {
-    await AppDataSource.connect()
+    await AppDataSource.initialize()
         .then(async () => {
             console.log('Connected to database');
             const app = express();
