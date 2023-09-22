@@ -1,6 +1,6 @@
 import { DataSource, Db } from 'typeorm';
 import { config } from 'dotenv';
-import ENV from '~/main/config/env.config';
+import { ENV } from '~/main/config/env.config';
 
 // import { GroupsTableInit1694934066735 } from '../migrations/1694934066735-GroupsTableInit';
 // import { GroupRoleTableInit1694934157356 } from '../migrations/1694934157356-GroupRoleTableInit';
