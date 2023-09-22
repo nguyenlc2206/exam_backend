@@ -7,43 +7,43 @@ import {
     ManyToOne,
     OneToMany,
     PrimaryGeneratedColumn
-} from 'typeorm'
-import UsersEntity from './user.entity'
-import ExamsCategoryEntity from './exam.category.entity'
-import ExamUserEntity from './examUser.entity'
-import QuestionsEntity from './question.entity'
+} from 'typeorm';
+import UsersEntity from './user.entity';
+import ExamsCategoryEntity from './exam.category.entity';
+import ExamUserEntity from './examUser.entity';
+import QuestionsEntity from './question.entity';
 
 /** Define exam entity */
 @Entity()
 class ExamsEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @Column({ type: 'varchar', length: 100 })
-    title: string
+    title: string;
 
     @Column({ nullable: true, type: 'varchar' })
-    image: string
+    image: string;
 
     @Column({
         default: true
     })
-    status: boolean
+    status: boolean;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date
+    createdAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date
+    updatedAt: Date;
 
     @DeleteDateColumn()
-    deletedAt: Date
+    deletedAt: Date;
 
     @ManyToOne(() => UsersEntity, (user) => user.exams, {
         onDelete: 'CASCADE'
@@ -51,7 +51,7 @@ class ExamsEntity {
     @JoinTable({
         name: 'userId'
     })
-    user: UsersEntity
+    user: UsersEntity;
 
     @ManyToOne(() => ExamsCategoryEntity, (user) => user.exams, {
         onDelete: 'CASCADE'
@@ -59,13 +59,13 @@ class ExamsEntity {
     @JoinTable({
         name: 'categoryId'
     })
-    category: ExamsCategoryEntity
+    category: ExamsCategoryEntity;
 
     @OneToMany(() => ExamUserEntity, (examUser) => examUser.exam)
-    examUser: ExamUserEntity[]
+    examUser: ExamUserEntity[];
 
     @OneToMany(() => QuestionsEntity, (question) => question.exam)
-    questions: QuestionsEntity[]
+    questions: QuestionsEntity[];
 }
 
-export default ExamsEntity
+export default ExamsEntity;

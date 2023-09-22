@@ -7,44 +7,44 @@ import {
     ManyToOne,
     OneToMany,
     PrimaryGeneratedColumn
-} from 'typeorm'
-import ExamsEntity from './exam.entity'
-import AnswersEntity from './answer.entity'
+} from 'typeorm';
+import ExamsEntity from './exam.entity';
+import AnswersEntity from './answer.entity';
 
 /** Define question entity */
 @Entity()
 class QuestionsEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @Column({ type: 'varchar' })
-    title: string
+    title: string;
 
     @Column({ type: 'varchar' })
-    subTitle: string
+    subTitle: string;
 
     @Column({ nullable: true, type: 'varchar' })
-    image: string
+    image: string;
 
     @Column({
         default: true
     })
-    status: boolean
+    status: boolean;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date
+    createdAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date
+    updatedAt: Date;
 
     @DeleteDateColumn()
-    deletedAt: Date
+    deletedAt: Date;
 
     @ManyToOne(() => ExamsEntity, (exam) => exam.questions, {
         onDelete: 'CASCADE'
@@ -52,13 +52,13 @@ class QuestionsEntity {
     @JoinTable({
         name: 'examId'
     })
-    exam: ExamsEntity
+    exam: ExamsEntity;
 
     @OneToMany(() => AnswersEntity, (answer) => answer.question)
-    answers: AnswersEntity[]
+    answers: AnswersEntity[];
 
     @Column({ nullable: true, type: 'uuid' })
-    answerCorrectId: string
+    answerCorrectId: string;
 }
 
-export default QuestionsEntity
+export default QuestionsEntity;

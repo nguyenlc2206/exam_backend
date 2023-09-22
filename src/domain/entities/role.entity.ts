@@ -1,32 +1,32 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, OneToMany } from 'typeorm'
-import GroupsRolesEntity from './groupRole.entity'
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, OneToMany } from 'typeorm';
+import GroupsRolesEntity from './groupRole.entity';
 
 /** Define role entity */
 @Entity()
 class RolesEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @Column({ unique: true, type: 'varchar', length: 50 })
-    url: string
+    url: string;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date
+    createdAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date
+    updatedAt: Date;
 
     @DeleteDateColumn()
-    deletedAt: Date
+    deletedAt: Date;
 
     @OneToMany(() => GroupsRolesEntity, (groupRole) => groupRole.role)
-    groupsRoles: GroupsRolesEntity[]
+    groupsRoles: GroupsRolesEntity[];
 }
 
-export default RolesEntity
+export default RolesEntity;

@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from 'express'
-import { ExamsServices } from 'src/application/services/exams/exam.services'
-import ExamsEntity from 'src/domain/entities/exam.entity'
-import AppError from 'src/error-handling/app.error'
-import catchAsync from 'src/shared/catch-async'
-import { Either, failure, success } from 'src/shared/functions'
+import { NextFunction, Request, Response } from 'express';
+import { ExamsServices } from '~/application/services/exams/exam.services';
+import ExamsEntity from '~/domain/entities/exam.entity';
+import AppError from '~/error-handling/app.error';
+import catchAsync from '~/shared/catch-async';
+import { Either, failure, success } from '~/shared/functions';
 
 /** define class get exam by id */
 export class GetExamByIdController {
@@ -12,8 +12,8 @@ export class GetExamByIdController {
     /** define excute function */
     execute = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
         /** @todo: get exams by id */
-        const examResult = await this.handleGetExamById(req.params.id)
-        if (examResult.isFailure()) return next(examResult.error)
+        const examResult = await this.handleGetExamById(req.params.id);
+        if (examResult.isFailure()) return next(examResult.error);
 
         /** @todo: processing response */
         res.status(200).json({
@@ -22,13 +22,13 @@ export class GetExamByIdController {
             data: {
                 exams: examResult.data
             }
-        })
-    })
+        });
+    });
 
     /** @todo: get exams by id */
     private handleGetExamById = async (id: string): Promise<Either<ExamsEntity, AppError>> => {
-        const exam = await this._examService.getById(id, true)
-        if (!exam) return failure(new AppError('Not have exam!', 400))
-        return success(exam)
-    }
+        const exam = await this._examService.getById(id, true);
+        if (!exam) return failure(new AppError('Not have exam!', 400));
+        return success(exam);
+    };
 }

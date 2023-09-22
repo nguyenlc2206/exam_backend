@@ -6,37 +6,37 @@ import {
     JoinTable,
     ManyToOne,
     PrimaryGeneratedColumn
-} from 'typeorm'
-import QuestionsEntity from './question.entity'
+} from 'typeorm';
+import QuestionsEntity from './question.entity';
 
 /** Define answer entity */
 @Entity()
 class AnswersEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @Column({ type: 'varchar' })
-    title: string
+    title: string;
 
     @Column({
         default: false
     })
-    status: boolean
+    status: boolean;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date
+    createdAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date
+    updatedAt: Date;
 
     @DeleteDateColumn()
-    deletedAt: Date
+    deletedAt: Date;
 
     @ManyToOne(() => QuestionsEntity, (question) => question.answers, {
         onDelete: 'CASCADE'
@@ -44,7 +44,7 @@ class AnswersEntity {
     @JoinTable({
         name: 'questionId'
     })
-    question: QuestionsEntity
+    question: QuestionsEntity;
 }
 
-export default AnswersEntity
+export default AnswersEntity;

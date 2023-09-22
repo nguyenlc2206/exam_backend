@@ -8,59 +8,59 @@ import {
     JoinTable,
     DeleteDateColumn,
     OneToMany
-} from 'typeorm'
-import GroupsEntity from './group.entity'
-import ExamsEntity from './exam.entity'
-import ExamUserEntity from './examUser.entity'
+} from 'typeorm';
+import GroupsEntity from './group.entity';
+import ExamsEntity from './exam.entity';
+import ExamUserEntity from './examUser.entity';
 
-export const UNIQUE_USER_EMAIL_CONSTRAINT = 'unique_user_email_constraint'
+export const UNIQUE_USER_EMAIL_CONSTRAINT = 'unique_user_email_constraint';
 /** Define user entity */
 @Entity()
 @Unique(UNIQUE_USER_EMAIL_CONSTRAINT, ['email'])
 class UsersEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @Column({ nullable: true, type: 'varchar', length: 30 })
-    username: string
+    username: string;
 
     @Column({ nullable: true, type: 'varchar', length: 200 })
-    avatar: string
+    avatar: string;
 
     @Column({ nullable: true, type: 'varchar', length: 25 })
-    phoneNumber: string
+    phoneNumber: string;
 
     @Column({ type: 'varchar', length: 40 })
-    email: string
+    email: string;
 
     @Column({ type: 'varchar', length: 200, select: false })
-    password: string
+    password: string;
 
     @Column({
         default: true
     })
-    status: boolean
+    status: boolean;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date
+    createdAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date
+    updatedAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    passwordChangedAt: Date
+    passwordChangedAt: Date;
 
     @DeleteDateColumn()
-    deletedAt: Date
+    deletedAt: Date;
 
     @Column({
         name: 'groupId',
@@ -73,13 +73,13 @@ class UsersEntity {
     @JoinTable({
         name: 'groupId'
     })
-    group: GroupsEntity
+    group: GroupsEntity;
 
     @OneToMany(() => ExamsEntity, (exam) => exam.user)
-    exams: UsersEntity[]
+    exams: UsersEntity[];
 
     @OneToMany(() => ExamUserEntity, (examUser) => examUser.user)
-    examUser: ExamUserEntity[]
+    examUser: ExamUserEntity[];
 }
 
-export default UsersEntity
+export default UsersEntity;

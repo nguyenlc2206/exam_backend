@@ -6,43 +6,43 @@ import {
     Unique,
     JoinTable,
     DeleteDateColumn
-} from 'typeorm'
-import GroupsEntity from './group.entity'
-import RolesEntity from './role.entity'
+} from 'typeorm';
+import GroupsEntity from './group.entity';
+import RolesEntity from './role.entity';
 
 /** Define group role entity */
 @Entity()
 @Unique(['group', 'role'])
 class GroupsRolesEntity {
     @PrimaryGeneratedColumn('uuid')
-    id: string
+    id: string;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    createdAt: Date
+    createdAt: Date;
 
     @CreateDateColumn({
         type: 'timestamptz',
         default: () => 'CURRENT_TIMESTAMP(7)'
     })
-    updatedAt: Date
+    updatedAt: Date;
 
     @DeleteDateColumn()
-    deletedAt: Date
+    deletedAt: Date;
 
     @ManyToOne(() => GroupsEntity, { onDelete: 'CASCADE' })
     @JoinTable({
         name: 'groupId'
     })
-    group: GroupsEntity
+    group: GroupsEntity;
 
     @ManyToOne(() => RolesEntity, { onDelete: 'CASCADE' })
     @JoinTable({
         name: 'roleId'
     })
-    role: RolesEntity
+    role: RolesEntity;
 }
 
-export default GroupsRolesEntity
+export default GroupsRolesEntity;

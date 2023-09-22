@@ -1,25 +1,24 @@
-import { Router } from 'express'
-
-import { UsersController } from '../controllers/users'
-import roleRestrictTo from '../controllers/authentications/permission.controller'
-import { AuthenticationsController } from '../controllers/authentications'
-import { UsersServicesImpl } from 'src/application/services/users/users.services.impl'
-import UsersEntity from 'src/domain/entities/user.entity'
-import { UsersRepositoryImpl } from 'src/infrastructure/repositories/users.repository.impl'
+import { Router } from 'express';
+import { UsersServicesImpl } from '~/application/services/users/users.services.impl';
+import UsersEntity from '~/domain/entities/user.entity';
+import { UsersRepositoryImpl } from '~/infrastructure/repositories/users.repository.impl';
+import { AuthenticationsController } from '../controllers/authentications';
+import roleRestrictTo from '../controllers/authentications/permission.controller';
+import { UsersController } from '../controllers/users';
 
 /** init repository */
-const usersRepository = new UsersRepositoryImpl(UsersEntity)
+const usersRepository = new UsersRepositoryImpl(UsersEntity);
 /** init service */
-const usersServices = new UsersServicesImpl(usersRepository)
+const usersServices = new UsersServicesImpl(usersRepository);
 /** init controller */
-const usersController = new UsersController(usersServices)
-const authController = new AuthenticationsController(usersServices)
+const usersController = new UsersController(usersServices);
+const authController = new AuthenticationsController(usersServices);
 /** init users routes */
 export const usersRoutesSetup = (router: Router) => {
     // protect routes
-    router.use(authController.protect)
+    router.use(authController.protect);
     // get all router
-    router.get('/users', roleRestrictTo(['admin']), usersController.getAll)
+    router.get('/users', roleRestrictTo(['admin']), usersController.getAll);
     // delete router
-    router.delete('/user/:id', roleRestrictTo(['admin']), usersController.delete)
-}
+    router.delete('/user/:id', roleRestrictTo(['admin']), usersController.delete);
+};

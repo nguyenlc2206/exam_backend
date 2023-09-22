@@ -1,5 +1,5 @@
-import { Response } from 'express'
-import { ResponseError } from '../entities/error.entity'
+import { Response } from 'express';
+import { ResponseError } from '../entities/error.entity';
 
 /**  send response on env development */
 export const sendErrorDev = (err: ResponseError, res: Response) => {
@@ -9,8 +9,8 @@ export const sendErrorDev = (err: ResponseError, res: Response) => {
         error: err,
         message: err.message,
         stack: err.stack
-    })
-}
+    });
+};
 
 /**  send response on env productions */
 export const sendErrorProd = (err: ResponseError, res: Response) => {
@@ -20,16 +20,16 @@ export const sendErrorProd = (err: ResponseError, res: Response) => {
         res.status(err.statusCode).json({
             status: err.status,
             message: err.message
-        })
+        });
 
         // Programing or other unknown error: don't leak error details
     } else {
         // 1) Log error
-        console.error('ERROR 💥', err)
+        console.error('ERROR 💥', err);
         // 2) Send generic message
         res.status(500).json({
             status: 'error',
             message: 'Somthing went very wrong!'
-        })
+        });
     }
-}
+};
