@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "commonjs", // Quy định output module được sử dụng
-        "moduleResolution": "node",
-        "target": "es2019", // Target output cho code
+        "module": "Node16", // Quy định output module được sử dụng
+        "moduleResolution": "Node",
+        "target": "es2016", // Target output cho code
         "lib": ["es2019"],
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
