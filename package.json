@@ -3,13 +3,14 @@
     "version": "1.0.0",
     "description": "",
     "main": "src/main/server.ts",
+    "type": "commonjs",
     "engines": {
         "node": "16.x"
     },
     "scripts": {
         "dev": "npx nodemon",
         "build": "rimraf ./dist && tsc && tsc-alias",
-        "start": "npm run build && node dist/main/server.js",
+        "start": "node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "prettier": "prettier --check .",
