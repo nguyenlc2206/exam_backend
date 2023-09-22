@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
-        "module": "commonjs", // Quy định output module được sử dụng
+        "module": "esnext", // Quy định output module được sử dụng
         "moduleResolution": "node",
-        "target": "es6", // Target output cho code
+        "types": ["node"],
+        "target": "esnext", // Target output cho code
         "outDir": "dist", // Đường dẫn output cho thư mục build
         "esModuleInterop": true,
         "strict": true /* Enable all strict type-checking options. */,
@@ -21,5 +22,5 @@
     "ts-node": {
         "require": ["tsconfig-paths/register"]
     },
-    "include": ["src/**/*"] // Đường dẫn include cho các file cần build
+    "include": ["./src/**/*.ts"] // Đường dẫn include cho các file cần build
 }
