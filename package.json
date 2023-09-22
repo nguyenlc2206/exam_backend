@@ -9,7 +9,7 @@
     },
     "scripts": {
         "dev": "npx nodemon",
-        "build": "rimraf dist && tsc -p tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
+        "build": "rimraf dist && tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
         "start": "node dist/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
