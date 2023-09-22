@@ -1,5 +1,7 @@
-import express from "express";
-import compression from "compression";
+// import express from "express";
+// import compression from "compression";
+const express = require("express");
+const compression = require("compression");
 
 import { ExpressConfig } from "./config/express.config";
 import { ENV } from "./config/env.config";
