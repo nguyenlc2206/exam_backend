@@ -19,7 +19,7 @@ class ExpressConfig {
         try {
             /** json pareser */
             this.app.use(express.json());
-
+            this.app.set('trust proxy', 1);
             /** cors config */
             expressCors(this.app);
 
