@@ -31,19 +31,19 @@ export const DB_CONFIG = {
 /** Define config app datasource typeorm */
 const AppDataSource = new DataSource({
     type: DB_CONFIG.type,
-    // host: DB_CONFIG.host,
-    // port: DB_CONFIG.port,
-    // username: DB_CONFIG.username,
-    // password: DB_CONFIG.password,
-    // database: DB_CONFIG.database,
-    url: DB_CONFIG.URL,
+    host: 'localhost',
+    port: DB_CONFIG.port,
+    username: 'postgres',
+    password: 'Password@123',
+    database: 'exams_database',
+    // url: DB_CONFIG.URL,
     synchronize: true,
     logging: false,
-    extra: {
-        ssl: {
-            rejectUnauthorized: false
-        }
-    },
+    // extra: {
+    //     ssl: {
+    //         rejectUnauthorized: false
+    //     }
+    // },
     entities: ['src/domain/entities/**/*.ts'],
     // migrations: ['src/infrastructure/migrations/**/*.ts']
     migrations: [

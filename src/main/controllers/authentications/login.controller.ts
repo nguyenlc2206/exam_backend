@@ -1,3 +1,7 @@
+import { NextFunction, Request, Response } from 'express';
+import { v4 as uuidv4 } from 'uuid';
+import * as _ from 'lodash';
+
 import { UsersServices } from '@src/application/services/users/users.services';
 import UsersEntity from '@src/domain/entities/user.entity';
 import AppError from '@src/error-handling/app.error';
@@ -10,8 +14,6 @@ import { TokenGeneratorAdapter } from '@src/shared/jwt/jwtAdapter';
 import { ValidationComposite } from '@src/shared/validations';
 import { EmailValidatorAdapter, EmailValidation } from '@src/shared/validations/email.validation';
 import { RequiredFieldValidation } from '@src/shared/validations/requiredFields';
-import { NextFunction, Request, Response } from 'express';
-import { v4 as uuidv4 } from 'uuid';
 
 /** Define login controller */
 export class LoginCotroller {
@@ -49,7 +51,8 @@ export class LoginCotroller {
             message: `Login with email ${req.body.email} success`,
             data: {
                 accessToken: _token,
-                refreshToken: refreshToken
+                refreshToken: refreshToken,
+                user: _.omit(getUserByEmailResult.data, ['password', 'passwordChangedAt'])
             }
         });
     });
@@ -66,19 +69,20 @@ export class LoginCotroller {
         for (const field of fields) {
             validations.push(new RequiredFieldValidation(field));
         }
-        /** @todo: init validationComposite **/
-        const validationComposite = new ValidationComposite(validations);
 
         /** @todo: Validate Email **/
         const emailValidatorAdapter = new EmailValidatorAdapter();
         validations.push(new EmailValidation('email', emailValidatorAdapter));
+
+        /** @todo: init validationComposite **/
+        const validationComposite = new ValidationComposite(validations);
 
         return validationComposite.validate(body);
     };
 
     /** @todo: get user by email */
     private handleGetUserByEmail = async (email: string): Promise<Either<UsersEntity, AppError>> => {
-        const userFinded = await this._userService.getUserByEmail(email);
+        const userFinded = await this._userService.getUserByEmail(email, true);
         if (!userFinded) return failure(new AppError('Email is not exists in database!', 400));
         return success(userFinded);
     };

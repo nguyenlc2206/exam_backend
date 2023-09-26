@@ -99,7 +99,6 @@ export class ForgotPasswordController {
     /** @todo: verify token expires */
     private handleVerifyTempoToken = async (tempoToken: string): Promise<Either<boolean, AppError>> => {
         const decode = jwt.verify(tempoToken, 'HS256');
-        console.log('>>>Check decode:', decode);
         return success(true);
     };
 
