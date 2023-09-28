@@ -2,15 +2,14 @@
     "name": "exam_project",
     "version": "1.0.0",
     "description": "",
-    "main": "src/main/server.ts",
+    "main": "dist/src/main/server.js",
     "engines": {
         "node": "16.x"
     },
-    "type": "commonjs",
     "scripts": {
         "dev": "npx nodemon",
-        "build": "rimraf ./dist && tsc && tsc-alias",
-        "start": "node dist/main/server.js",
+        "build": "tsc && tsc-alias",
+        "start": "node dist/src/main/server.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "prettier": "prettier --check .",

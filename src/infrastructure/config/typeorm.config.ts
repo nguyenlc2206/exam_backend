@@ -2,16 +2,26 @@ import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 import { ENV } from '@src/main/config/env.config';
 
-import { GroupsTableInit1694934066735 } from '../migrations/1694934066735-GroupsTableInit';
-import { GroupRoleTableInit1694934157356 } from '../migrations/1694934157356-GroupRoleTableInit';
-import { RolesTableInit1694934273856 } from '../migrations/1694934273856-RolesTableInit';
-import { ExamCategoryTableInit1695178172833 } from '../migrations/1695178172833-ExamCategoryTableInit';
-import { ExamTableInit1695181192602 } from '../migrations/1695181192602-ExamTableInit';
-import { QuestionTableInit1695181612280 } from '../migrations/1695181612280-QuestionTableInit';
-import { AnswerTableInit1695182365708 } from '../migrations/1695182365708-AnswerTableInit';
-import { ExamUserTableInit1695217649175 } from '../migrations/1695217649175-ExamUserTableInit';
-import { UsersTableInit1694931638143 } from '../migrations/1695130922313-UsersTableInit';
+// import { GroupsTableInit1694934066735 } from '../migrations/1694934066735-GroupsTableInit';
+// import { GroupRoleTableInit1694934157356 } from '../migrations/1694934157356-GroupRoleTableInit';
+// import { RolesTableInit1694934273856 } from '../migrations/1694934273856-RolesTableInit';
+// import { ExamCategoryTableInit1695178172833 } from '../migrations/1695178172833-ExamCategoryTableInit';
+// import { ExamTableInit1695181192602 } from '../migrations/1695181192602-ExamTableInit';
+// import { QuestionTableInit1695181612280 } from '../migrations/1695181612280-QuestionTableInit';
+// import { AnswerTableInit1695182365708 } from '../migrations/1695182365708-AnswerTableInit';
+// import { ExamUserTableInit1695217649175 } from '../migrations/1695217649175-ExamUserTableInit';
+// import { UsersTableInit1694931638143 } from '../migrations/1695130922313-UsersTableInit';
 import { MigrationInit1695385298921 } from '../migrations/1695385298921-MigrationInit';
+
+import UsersEntity from '@src/domain/entities/user.entity';
+import AnswersEntity from '@src/domain/entities/answer.entity';
+import ExamsCategoryEntity from '@src/domain/entities/exam.category.entity';
+import ExamsEntity from '@src/domain/entities/exam.entity';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import GroupsEntity from '@src/domain/entities/group.entity';
+import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
+import RolesEntity from '@src/domain/entities/role.entity';
 
 config();
 
@@ -31,10 +41,10 @@ export const DB_CONFIG = {
 /** Define config app datasource typeorm */
 const AppDataSource = new DataSource({
     type: DB_CONFIG.type,
-    host: 'localhost',
+    host: 'db',
     port: DB_CONFIG.port,
     username: 'postgres',
-    password: 'Password@123',
+    password: 'postgres',
     database: 'exams_database',
     // url: DB_CONFIG.URL,
     synchronize: true,
@@ -44,14 +54,24 @@ const AppDataSource = new DataSource({
     //         rejectUnauthorized: false
     //     }
     // },
-    entities: ['src/domain/entities/**/*.ts'],
+    entities: [
+        UsersEntity,
+        AnswersEntity,
+        ExamsCategoryEntity,
+        ExamsEntity,
+        ExamUserEntity,
+        GroupsEntity,
+        GroupsRolesEntity,
+        QuestionsEntity,
+        RolesEntity
+    ],
     // migrations: ['src/infrastructure/migrations/**/*.ts']
     migrations: [
-        // MigrationInit1695385298921
+        MigrationInit1695385298921
         // GroupsTableInit1694934066735,
         // RolesTableInit1694934273856,
         // GroupRoleTableInit1694934157356,
-        UsersTableInit1694931638143
+        // UsersTableInit1694931638143,
         // ExamCategoryTableInit1695178172833,
         // AnswerTableInit1695182365708,
         // ExamTableInit1695181192602,
