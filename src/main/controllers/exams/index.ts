@@ -7,6 +7,7 @@ import { CreateExamController } from '@src/main/controllers/exams/exam.create.co
 import { GetAllExamsController } from '@src/main/controllers/exams/exam.getAll.controller';
 import { GetExamByIdController } from '@src/main/controllers/exams/exam.getById.controller';
 import { UpdateExamController } from '@src/main/controllers/exams/exam.update.controller';
+import { SubmitExamController } from './exam.submit.controller';
 
 /** define exams controller */
 export class ExamsController {
@@ -40,5 +41,11 @@ export class ExamsController {
     getExamById = async (req: Request, res: Response, next: NextFunction) => {
         const getExam = new GetExamByIdController(this.exmaService);
         return getExam.execute(req, res, next);
+    };
+
+    /** submit exams method */
+    submitExam = async (req: Request, res: Response, next: NextFunction) => {
+        const submitExam = new SubmitExamController(this.exmaService);
+        return submitExam.execute(req, res, next);
     };
 }

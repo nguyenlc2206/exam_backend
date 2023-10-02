@@ -22,6 +22,9 @@ class ExamsEntity {
     @Column({ type: 'varchar', length: 100 })
     title: string;
 
+    @Column({ type: 'varchar' })
+    subTitle: string;
+
     @Column({ nullable: true, type: 'varchar' })
     image: string;
 

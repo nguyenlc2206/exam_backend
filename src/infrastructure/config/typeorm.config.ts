@@ -22,6 +22,7 @@ import GroupsEntity from '@src/domain/entities/group.entity';
 import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
 import QuestionsEntity from '@src/domain/entities/question.entity';
 import RolesEntity from '@src/domain/entities/role.entity';
+import { AddColumnSubTitleExamTable1695909737822 } from '../migrations/1695909737822-AddColumnSubTitleExamTable';
 
 config();
 
@@ -67,7 +68,8 @@ const AppDataSource = new DataSource({
     ],
     // migrations: ['src/infrastructure/migrations/**/*.ts']
     migrations: [
-        MigrationInit1695385298921
+        MigrationInit1695385298921,
+        AddColumnSubTitleExamTable1695909737822
         // GroupsTableInit1694934066735,
         // RolesTableInit1694934273856,
         // GroupRoleTableInit1694934157356,

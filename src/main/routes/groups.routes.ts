@@ -28,4 +28,6 @@ export const groupsRoutesSetup = (router: Router) => {
     router.patch('/groups', roleRestrictTo(['admin']), groupsController.update);
     // getAll groups router
     router.get('/groups', roleRestrictTo(['admin']), groupsController.getAll);
+    // getById groups router
+    router.get('/groups/:id', roleRestrictTo(['admin']), groupsController.getById);
 };

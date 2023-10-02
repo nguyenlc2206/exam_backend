@@ -54,7 +54,7 @@ export class CreateExamController {
         const body = request.body;
 
         const validations: Validation[] = [];
-        const fields = ['title', 'category'];
+        const fields = ['title', 'subTitle', 'category'];
 
         /** @todo: Validate field requires **/
         for (const field of fields) {

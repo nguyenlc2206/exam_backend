@@ -2,7 +2,7 @@
 export interface GroupsServices<Entity> {
     create(entity: Entity): Promise<Entity>;
     getByName(name: string): Promise<Entity | undefined>;
-    getById(id: number): Promise<Entity | undefined>;
+    getById(id: string): Promise<Entity | undefined>;
     update(entity: Entity): Promise<Entity>;
     getAll(): Promise<Entity[]>;
 }

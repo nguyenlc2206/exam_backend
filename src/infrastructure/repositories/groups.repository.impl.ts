@@ -27,7 +27,7 @@ export class GroupsRepositoryImpl<T extends GroupsEntity> implements GroupsRepos
     }
 
     /** overding getById method */
-    async getById(id?: number): Promise<T | undefined> {
+    async getById(id?: string): Promise<T | undefined> {
         const criterias = { where: { id: id } as FindOptionsWhere<T> };
         const entity = await this.repository.findOne(criterias);
         if (!entity) return undefined;

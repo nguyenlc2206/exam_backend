@@ -6,6 +6,7 @@ import { NextFunction, Request, Response } from 'express';
 import { CreateQuestionController } from '@src/main/controllers/questions/question.create.controller';
 import { DeleteQuestionController } from '@src/main/controllers/questions/question.delete.controller';
 import { GetAllQuestionsController } from '@src/main/controllers/questions/question.getAll.controller';
+import { GetQuestionsByExamIdController } from './question.getByExamId.controller';
 
 /** define questions controller */
 export class QuestionsController {
@@ -33,5 +34,11 @@ export class QuestionsController {
     delete = async (req: Request, res: Response, next: NextFunction) => {
         const deleteQuestion = new DeleteQuestionController(this.questionsServices);
         return deleteQuestion.execute(req, res, next);
+    };
+
+    /** delete method */
+    getQuestionsByExamId = async (req: Request, res: Response, next: NextFunction) => {
+        const getQuestions = new GetQuestionsByExamIdController(this.questionsServices);
+        return getQuestions.execute(req, res, next);
     };
 }

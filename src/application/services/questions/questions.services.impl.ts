@@ -17,7 +17,7 @@ export class QuestionsServicesImpl<Entity extends QuestionsEntity> implements Qu
         await this.repository.delete(id);
     }
 
-    /** overiding getUserById method */
+    /** overiding getById method */
     async getById(id: string, relations?: boolean): Promise<Entity | undefined> {
         const response = await this.repository.getById(id, relations);
         return response;
@@ -32,6 +32,12 @@ export class QuestionsServicesImpl<Entity extends QuestionsEntity> implements Qu
     /** overiding update method */
     async update(entity: Entity): Promise<Entity> {
         const response = await this.repository.update(entity);
+        return response;
+    }
+
+    /** overiding getQuestionsByExamId method */
+    async getQuestionsByExamId(id: string): Promise<Entity[]> {
+        const response = await this.repository.getQuestionsByExamId(id);
         return response;
     }
 }

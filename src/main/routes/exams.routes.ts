@@ -35,4 +35,6 @@ export const examsRoutesSetup = (router: Router) => {
     router.get('/exams', roleRestrictTo(['admin']), examsController.getAll);
     // get exam by id router
     router.get('/exams/:id', roleRestrictTo(['admin']), examsController.getExamById);
+    // submit exam router
+    router.post('/exams/submit', roleRestrictTo(['admin', 'user']), examsController.submitExam);
 };

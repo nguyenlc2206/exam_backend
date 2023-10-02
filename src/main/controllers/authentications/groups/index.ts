@@ -4,6 +4,7 @@ import { NextFunction, Request, Response } from 'express';
 import { CreateGroupController } from '@src/main/controllers/authentications/groups/group.create.controller';
 import { GetAllGroupsController } from '@src/main/controllers/authentications/groups/group.getAll.controller';
 import { UpdateGroupController } from '@src/main/controllers/authentications/groups/group.update.controller';
+import { GetGroupById } from './group.getById.controller';
 
 /** Define groups controller */
 export class GroupsController {
@@ -29,5 +30,11 @@ export class GroupsController {
     getAll = async (req: Request, res: Response, next: NextFunction) => {
         const getAllGroups = new GetAllGroupsController(this.service);
         return getAllGroups.execute(req, res, next);
+    };
+
+    /** getByID method */
+    getById = async (req: Request, res: Response, next: NextFunction) => {
+        const getGroupById = new GetGroupById(this.service);
+        return getGroupById.execute(req, res, next);
     };
 }

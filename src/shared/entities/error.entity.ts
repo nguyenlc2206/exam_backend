@@ -5,4 +5,5 @@ export type ResponseError = {
     message: String;
     stack: any;
     isOperational: boolean;
+    name: string;
 };

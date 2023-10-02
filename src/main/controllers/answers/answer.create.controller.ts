@@ -30,8 +30,6 @@ export class CreateAnwserController {
         const checkListIdResult = this.handleCheckListIds(req, listIds.data);
         if (checkListIdResult.isFailure()) return next(checkListIdResult.error);
 
-        /** @todo: check and remove answers */
-
         /** @todo: save data to table answers_entity */
         const saveAnswersResult = await this.handleCreateAnswers(req);
         if (saveAnswersResult.isFailure()) return next(saveAnswersResult.error);

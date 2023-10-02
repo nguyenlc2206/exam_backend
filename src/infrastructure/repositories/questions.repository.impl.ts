@@ -1,4 +1,4 @@
-import { EntityTarget, FindOptionsWhere, Repository } from 'typeorm';
+import { EntityTarget, FindOptionsRelations, FindOptionsWhere, Repository } from 'typeorm';
 import * as _ from 'lodash';
 import { QuestionsRepository } from '@src/application/repositories/questions.repository';
 import QuestionsEntity from '@src/domain/entities/question.entity';
@@ -53,6 +53,16 @@ export class QuestionsRepositoryImpl<T extends QuestionsEntity> implements Quest
         const _cloneEntity = _.cloneDeep(entity);
         const _itemUpdate = _.omit(_cloneEntity, ['id']);
         await this.repository.update(entity?.id, _itemUpdate as any);
+        return entity;
+    }
+
+    /** overiding getQuestionsByExamIds */
+    async getQuestionsByExamId(id: string): Promise<T[]> {
+        const criterias = {
+            where: { exam: { id: id } } as FindOptionsWhere<any>,
+            relations: ['answers']
+        };
+        const entity = await this.repository.find(criterias);
         return entity;
     }
 }

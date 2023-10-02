@@ -5,4 +5,5 @@ export interface QuestionsRepository<T> {
     update(entity: T): Promise<T>;
     getAll(): Promise<T[]>;
     delete(id: string): Promise<void>;
+    getQuestionsByExamId(id: string): Promise<T[]>;
 }

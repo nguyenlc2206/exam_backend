@@ -33,4 +33,6 @@ export const questionsRoutesSetup = (router: Router) => {
     router.get('/questions', roleRestrictTo(['user', 'admin']), questionsController.getAll);
     // create question router
     router.delete('/questions/:id', roleRestrictTo(['user', 'admin']), questionsController.delete);
+    // get questions router
+    router.get('/questions/:examId', roleRestrictTo(['user', 'admin']), questionsController.getQuestionsByExamId);
 };

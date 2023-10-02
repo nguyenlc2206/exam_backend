@@ -19,7 +19,7 @@ export class GroupsServicesImpl<Entity extends GroupsEntity> implements GroupsSe
     }
 
     /** overiding getById method */
-    async getById(id: number): Promise<Entity | undefined> {
+    async getById(id: string): Promise<Entity | undefined> {
         const response = await this.repository.getById(id);
         return response;
     }

@@ -59,7 +59,7 @@ export class UpdateGroupController {
     };
 
     /** @todo: get information group by id */
-    private handleGetGroupById = async (id: number): Promise<Either<GroupsEntity, AppError>> => {
+    private handleGetGroupById = async (id: string): Promise<Either<GroupsEntity, AppError>> => {
         const itemGet = await this._groupsServices.getById(id);
         if (!itemGet) return failure(new AppError('Id role not exists!', 400));
         return success(itemGet);
