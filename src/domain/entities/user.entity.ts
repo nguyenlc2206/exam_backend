@@ -7,7 +7,8 @@ import {
     Unique,
     JoinTable,
     DeleteDateColumn,
-    OneToMany
+    OneToMany,
+    Index
 } from 'typeorm';
 import GroupsEntity from '@src/domain/entities/group.entity';
 import ExamsEntity from '@src/domain/entities/exam.entity';
@@ -30,6 +31,7 @@ class UsersEntity {
     @Column({ nullable: true, type: 'varchar', length: 25 })
     phoneNumber: string;
 
+    @Index('IDX_USER_EMAIL')
     @Column({ type: 'varchar', length: 40 })
     email: string;
 
@@ -37,7 +39,7 @@ class UsersEntity {
     password: string;
 
     @Column({
-        default: true
+        default: false
     })
     status: boolean;
 

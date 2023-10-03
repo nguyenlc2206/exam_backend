@@ -40,7 +40,6 @@ export class GetQuestionsByExamIdController {
     /**  @todo: processing data response */
     private handleQuestionsReponse = async (items: QuestionsEntity[]): Promise<Either<QuestionsEntity[], AppError>> => {
         items.map((item: QuestionsEntity) => {
-            item.status = false;
             if (item.answers.length) {
                 item.answers.map((answer: AnswersEntity) => {
                     answer.status = false;

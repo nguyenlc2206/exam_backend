@@ -1,5 +1,6 @@
 import { ExamsServices } from '@src/application/services/exams/exam.services';
 import ExamsEntity from '@src/domain/entities/exam.entity';
+import QuestionsEntity from '@src/domain/entities/question.entity';
 import AppError from '@src/error-handling/app.error';
 import catchAsync from '@src/shared/catch-async';
 import { Either, failure, success } from '@src/shared/functions';
@@ -29,6 +30,12 @@ export class GetExamByIdController {
     private handleGetExamById = async (id: string): Promise<Either<ExamsEntity, AppError>> => {
         const exam = await this._examService.getById(id, true);
         if (!exam) return failure(new AppError('Not have exam!', 400));
+        if (exam?.status === false) {
+            return success(exam);
+        }
+        exam.questions.map((item: QuestionsEntity) => {
+            item.answerCorrectId = '';
+        });
         return success(exam);
     };
 }

@@ -5,7 +5,8 @@ import {
     ManyToOne,
     Unique,
     JoinTable,
-    DeleteDateColumn
+    DeleteDateColumn,
+    Index
 } from 'typeorm';
 import UsersEntity from '@src/domain/entities/user.entity';
 import ExamsEntity from '@src/domain/entities/exam.entity';
@@ -32,6 +33,7 @@ class ExamUserEntity {
     @DeleteDateColumn()
     deletedAt: Date;
 
+    @Index('IDX_USER_ID')
     @ManyToOne(() => UsersEntity, (user) => user.examUser, {
         onDelete: 'CASCADE'
     })
@@ -40,6 +42,7 @@ class ExamUserEntity {
     })
     user: UsersEntity;
 
+    @Index('IDX_EXAM_ID')
     @ManyToOne(() => ExamsEntity, (exam) => exam.examUser, {
         onDelete: 'CASCADE'
     })

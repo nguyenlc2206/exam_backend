@@ -27,7 +27,7 @@ class QuestionsEntity {
     image: string;
 
     @Column({
-        default: true
+        default: false
     })
     status: boolean;
 
@@ -57,8 +57,11 @@ class QuestionsEntity {
     @OneToMany(() => AnswersEntity, (answer) => answer.question)
     answers: AnswersEntity[];
 
-    @Column({ nullable: true, type: 'uuid' })
+    @Column({ nullable: true, type: 'uuid', select: false })
     answerCorrectId: string;
+
+    @Column({ nullable: true, type: 'uuid', select: false })
+    answerUserId: string;
 }
 
 export default QuestionsEntity;

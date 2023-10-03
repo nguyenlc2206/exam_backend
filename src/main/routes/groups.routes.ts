@@ -29,5 +29,5 @@ export const groupsRoutesSetup = (router: Router) => {
     // getAll groups router
     router.get('/groups', roleRestrictTo(['admin']), groupsController.getAll);
     // getById groups router
-    router.get('/groups/:id', roleRestrictTo(['admin']), groupsController.getById);
+    router.get('/groups/:id', roleRestrictTo(['admin', 'user']), groupsController.getById);
 };

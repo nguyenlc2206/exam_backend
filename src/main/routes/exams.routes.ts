@@ -11,18 +11,26 @@ import { Router } from 'express';
 import { AuthenticationsController } from '@src/main/controllers/authentications';
 import roleRestrictTo from '@src/main/controllers/authentications/permission.controller';
 import { ExamsController } from '@src/main/controllers/exams';
+import { QuestionsRepositoryImpl } from '@src/infrastructure/repositories/questions.repository.impl';
+import QuestionsEntity from '@src/domain/entities/question.entity';
+import { QuestionsServicesImpl } from '@src/application/services/questions/questions.services.impl';
 
 /** init repository */
 const examsRepository = new ExamsRepositoryImpl(ExamsEntity);
 const usersRepository = new UsersRepositoryImpl(UsersEntity);
 const categoriesRepository = new ExamsCategoryRepositoryImpl(ExamsCategoryEntity);
+const questionsRepository = new QuestionsRepositoryImpl(QuestionsEntity);
+
 /** init service */
 const categoriesServices = new CategoryServicesImpl(categoriesRepository);
 const examsServices = new ExamsServicesImpl(examsRepository);
 const usersServices = new UsersServicesImpl(usersRepository);
+const questionsServices = new QuestionsServicesImpl(questionsRepository);
+
 /** init controller */
-const examsController = new ExamsController(examsServices, categoriesServices);
+const examsController = new ExamsController(examsServices, categoriesServices, questionsServices);
 const authController = new AuthenticationsController(usersServices);
+
 /** init groups routes */
 export const examsRoutesSetup = (router: Router) => {
     // protect routes

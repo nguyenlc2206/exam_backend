@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, OneToMany } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, OneToMany, Index } from 'typeorm';
 import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
 
 /** Define role entity */
@@ -7,6 +7,7 @@ class RolesEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
+    @Index('IDX_ROLES_URL')
     @Column({ unique: true, type: 'varchar', length: 50 })
     url: string;
 

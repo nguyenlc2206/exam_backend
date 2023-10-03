@@ -58,7 +58,7 @@ export class QuestionsRepositoryImpl<T extends QuestionsEntity> implements Quest
 
     /** overiding getQuestionsByExamIds */
     async getQuestionsByExamId(id: string): Promise<T[]> {
-        const criterias = {
+        const criterias: any = {
             where: { exam: { id: id } } as FindOptionsWhere<any>,
             relations: ['answers']
         };

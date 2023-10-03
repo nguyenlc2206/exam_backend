@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, DeleteDateColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, OneToMany, DeleteDateColumn, Index } from 'typeorm';
 import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
 import UsersEntity from '@src/domain/entities/user.entity';
 
@@ -8,6 +8,7 @@ class GroupsEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
+    @Index('IDX_GROUPS_NAME')
     @Column({
         type: 'varchar',
         length: 25,

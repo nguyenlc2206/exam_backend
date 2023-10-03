@@ -11,7 +11,6 @@ import { ENV } from '@src/main/config/env.config';
 // import { AnswerTableInit1695182365708 } from '../migrations/1695182365708-AnswerTableInit';
 // import { ExamUserTableInit1695217649175 } from '../migrations/1695217649175-ExamUserTableInit';
 // import { UsersTableInit1694931638143 } from '../migrations/1695130922313-UsersTableInit';
-import { MigrationInit1695385298921 } from '../migrations/1695385298921-MigrationInit';
 
 import UsersEntity from '@src/domain/entities/user.entity';
 import AnswersEntity from '@src/domain/entities/answer.entity';
@@ -22,7 +21,7 @@ import GroupsEntity from '@src/domain/entities/group.entity';
 import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
 import QuestionsEntity from '@src/domain/entities/question.entity';
 import RolesEntity from '@src/domain/entities/role.entity';
-import { AddColumnSubTitleExamTable1695909737822 } from '../migrations/1695909737822-AddColumnSubTitleExamTable';
+import { MigrationInit1696254834540 } from '@src/infrastructure/migrations/1696254834540-MigrationInit';
 
 config();
 
@@ -55,6 +54,7 @@ const AppDataSource = new DataSource({
     //         rejectUnauthorized: false
     //     }
     // },
+    // entities: ['src/infrastructure/migrations/**/*.ts']
     entities: [
         UsersEntity,
         AnswersEntity,
@@ -68,8 +68,7 @@ const AppDataSource = new DataSource({
     ],
     // migrations: ['src/infrastructure/migrations/**/*.ts']
     migrations: [
-        MigrationInit1695385298921,
-        AddColumnSubTitleExamTable1695909737822
+        MigrationInit1696254834540
         // GroupsTableInit1694934066735,
         // RolesTableInit1694934273856,
         // GroupRoleTableInit1694934157356,

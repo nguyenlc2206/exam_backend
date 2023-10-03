@@ -28,11 +28,27 @@ export class ExamsRepositoryImpl<T extends ExamsEntity> implements ExamsReposito
 
     /** overiding getById method */
     async getById(id: string, relations?: boolean): Promise<T | undefined> {
-        let criterias: any = { where: { id: id } as FindOptionsWhere<T> };
+        let criterias: any = {
+            where: { id: id } as FindOptionsWhere<T>,
+            relations: ['questions'],
+            select: {
+                questions: {
+                    id: true,
+                    answerUserId: true
+                }
+            }
+        };
         if (relations)
             criterias = {
                 ...criterias,
-                relations: ['questions']
+                relations: ['questions'],
+                select: {
+                    questions: {
+                        id: true,
+                        answerCorrectId: true,
+                        answerUserId: true
+                    }
+                }
             };
         const entity = await this.repository.findOne(criterias);
         if (!entity) return undefined;
@@ -41,9 +57,17 @@ export class ExamsRepositoryImpl<T extends ExamsEntity> implements ExamsReposito
 
     /** overiding getAll method */
     async getAll(): Promise<T[]> {
-        const entities = await this.repository.find({
-            relations: ['questions']
-        });
+        let criterias: any = {
+            relations: ['questions'],
+            select: {
+                questions: {
+                    id: true,
+                    answerCorrectId: true,
+                    answerUserId: true
+                }
+            }
+        };
+        const entities = await this.repository.find(criterias);
         return entities;
     }
 }

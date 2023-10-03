@@ -8,15 +8,23 @@ import { GetAllExamsController } from '@src/main/controllers/exams/exam.getAll.c
 import { GetExamByIdController } from '@src/main/controllers/exams/exam.getById.controller';
 import { UpdateExamController } from '@src/main/controllers/exams/exam.update.controller';
 import { SubmitExamController } from './exam.submit.controller';
+import { QuestionsServices } from '@src/application/services/questions/questions.services';
+import QuestionsEntity from '@src/domain/entities/question.entity';
 
 /** define exams controller */
 export class ExamsController {
     private exmaService: ExamsServices<ExamsEntity>;
     private categoryService: CategoryServices<ExamsCategoryEntity>;
+    private questionsServices: QuestionsServices<QuestionsEntity>;
 
-    constructor(exmaService: ExamsServices<ExamsEntity>, categoryService: CategoryServices<ExamsCategoryEntity>) {
+    constructor(
+        exmaService: ExamsServices<ExamsEntity>,
+        categoryService: CategoryServices<ExamsCategoryEntity>,
+        questionsServices: QuestionsServices<QuestionsEntity>
+    ) {
         this.exmaService = exmaService;
         this.categoryService = categoryService;
+        this.questionsServices = questionsServices;
     }
 
     /** create exam method */
@@ -45,7 +53,7 @@ export class ExamsController {
 
     /** submit exams method */
     submitExam = async (req: Request, res: Response, next: NextFunction) => {
-        const submitExam = new SubmitExamController(this.exmaService);
+        const submitExam = new SubmitExamController(this.exmaService, this.questionsServices);
         return submitExam.execute(req, res, next);
     };
 }

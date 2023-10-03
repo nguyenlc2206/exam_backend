@@ -7,6 +7,7 @@ import { Either, failure, success } from '@src/shared/functions';
 import AppError from '@src/error-handling/app.error';
 import { ExamsServices } from '@src/application/services/exams/exam.services';
 import ExamsEntity from '@src/domain/entities/exam.entity';
+import { QuestionsServices } from '@src/application/services/questions/questions.services';
 
 /** define type and value resulte submit */
 type ItemResult = {
@@ -21,7 +22,10 @@ type ResultType = {
 
 /** define submit exam controller */
 export class SubmitExamController {
-    constructor(private _examsServices: ExamsServices<ExamsEntity>) {}
+    constructor(
+        private _examsServices: ExamsServices<ExamsEntity>,
+        private _questionService: QuestionsServices<QuestionsEntity>
+    ) {}
 
     /** execute function */
     execute = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
@@ -33,6 +37,9 @@ export class SubmitExamController {
         /** @todo: process checking questions submit */
         const resultRes = await this.handleProcQuestionSubmit(req, questions);
         if (resultRes.isFailure()) return next(resultRes.error);
+
+        /** @todo: update answerUserId to questions database */
+        this.handleUpdateUserId(req);
 
         /** @todo: processing response */
         res.status(200).json({
@@ -83,7 +90,23 @@ export class SubmitExamController {
                 });
             }
         });
+        /** update status exam */
+        const exam = new ExamsEntity();
+        exam.id = req.body?.examId;
+        exam.status = false;
+        await this._examsServices.update(exam);
 
         return success(result);
+    };
+
+    /** @todo: update answerUserId to questions database */
+    private handleUpdateUserId = async (req: Request): Promise<void> => {
+        const questionSubmit = req.body?.data;
+        questionSubmit.map(async (item: any) => {
+            let question = new QuestionsEntity();
+            question.id = item?.questionId;
+            question.answerUserId = item?.answerId;
+            await this._questionService.update(question);
+        });
     };
 }
