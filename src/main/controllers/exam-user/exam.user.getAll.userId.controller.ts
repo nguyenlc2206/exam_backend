@@ -34,7 +34,7 @@ export class GetAllExamsWithUserIdController {
     /** @todo: get all exams by user id */
     private handleGetAllExamsByUserId = async (id: string): Promise<Either<ExamUserEntity[], AppError>> => {
         const listExams = await this._examUserService.getAllExamsByUserId(id);
-        if (!listExams) return failure(new AppError('User not have exam!', 400));
+        if (!listExams) return success([]);
         return success(listExams);
     };
 
