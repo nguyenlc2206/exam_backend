@@ -6,10 +6,13 @@ import {
     Unique,
     JoinTable,
     DeleteDateColumn,
-    Index
+    Index,
+    Column,
+    OneToMany
 } from 'typeorm';
 import UsersEntity from '@src/domain/entities/user.entity';
 import ExamsEntity from '@src/domain/entities/exam.entity';
+import UserAnswerEntity from './userAnswer.entity';
 
 /** Define group role entity */
 @Entity()
@@ -17,6 +20,14 @@ import ExamsEntity from '@src/domain/entities/exam.entity';
 class ExamUserEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
+
+    @Column({})
+    retry: number;
+
+    @Column({
+        default: false
+    })
+    status: boolean;
 
     @CreateDateColumn({
         type: 'timestamptz',

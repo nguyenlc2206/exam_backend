@@ -13,6 +13,7 @@ import {
 import GroupsEntity from '@src/domain/entities/group.entity';
 import ExamsEntity from '@src/domain/entities/exam.entity';
 import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
 
 export const UNIQUE_USER_EMAIL_CONSTRAINT = 'unique_user_email_constraint';
 /** Define user entity */
@@ -82,6 +83,9 @@ class UsersEntity {
 
     @OneToMany(() => ExamUserEntity, (examUser) => examUser.user)
     examUser: ExamUserEntity[];
+
+    @OneToMany(() => UserAnswerEntity, (exam) => exam.user)
+    userAnswer: UserAnswerEntity[];
 }
 
 export default UsersEntity;

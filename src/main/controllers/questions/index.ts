@@ -7,15 +7,29 @@ import { CreateQuestionController } from '@src/main/controllers/questions/questi
 import { DeleteQuestionController } from '@src/main/controllers/questions/question.delete.controller';
 import { GetAllQuestionsController } from '@src/main/controllers/questions/question.getAll.controller';
 import { GetQuestionsByExamIdController } from './question.getByExamId.controller';
+import { UserAnswerServices } from '@src/application/services/user-answer/user.answer.services';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
+import { ExamRelationUserServices } from '@src/application/services/exam-user/exam.user.services';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import { RestoreQuestionController } from './question.restore.controller';
 
 /** define questions controller */
 export class QuestionsController {
     private examsServices: ExamsServices<ExamsEntity>;
     private questionsServices: QuestionsServices<QuestionsEntity>;
+    private userAnswerServices: UserAnswerServices<UserAnswerEntity>;
+    private examUserService: ExamRelationUserServices<ExamUserEntity>;
 
-    constructor(examsServices: ExamsServices<ExamsEntity>, questionsServices: QuestionsServices<QuestionsEntity>) {
+    constructor(
+        examsServices: ExamsServices<ExamsEntity>,
+        questionsServices: QuestionsServices<QuestionsEntity>,
+        userAnswerServices: UserAnswerServices<UserAnswerEntity>,
+        examUserService: ExamRelationUserServices<ExamUserEntity>
+    ) {
         this.examsServices = examsServices;
         this.questionsServices = questionsServices;
+        this.userAnswerServices = userAnswerServices;
+        this.examUserService = examUserService;
     }
 
     /** create method */
@@ -36,9 +50,19 @@ export class QuestionsController {
         return deleteQuestion.execute(req, res, next);
     };
 
+    /** restore method */
+    restore = async (req: Request, res: Response, next: NextFunction) => {
+        const restoreQuestion = new RestoreQuestionController(this.questionsServices);
+        return restoreQuestion.execute(req, res, next);
+    };
+
     /** delete method */
     getQuestionsByExamId = async (req: Request, res: Response, next: NextFunction) => {
-        const getQuestions = new GetQuestionsByExamIdController(this.questionsServices);
+        const getQuestions = new GetQuestionsByExamIdController(
+            this.questionsServices,
+            this.examUserService,
+            this.userAnswerServices
+        );
         return getQuestions.execute(req, res, next);
     };
 }

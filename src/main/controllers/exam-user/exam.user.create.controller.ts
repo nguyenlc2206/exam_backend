@@ -44,6 +44,7 @@ export class CreateExamRelationUserController {
             const examUser = new ExamUserEntity();
             examUser.exam = item;
             examUser.user = req.body.userId;
+            examUser.retry = 2;
             _listExamUser.push(examUser);
         });
         const newExamUser = await this.handleCreateExamUser(_listExamUser);

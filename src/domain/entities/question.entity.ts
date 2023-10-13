@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import ExamsEntity from '@src/domain/entities/exam.entity';
 import AnswersEntity from '@src/domain/entities/answer.entity';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
 
 /** Define question entity */
 @Entity()
@@ -60,8 +61,8 @@ class QuestionsEntity {
     @Column({ nullable: true, type: 'uuid', select: false })
     answerCorrectId: string;
 
-    @Column({ nullable: true, type: 'uuid', select: false })
-    answerUserId: string;
+    @OneToMany(() => UserAnswerEntity, (answer) => answer.question)
+    userAnswer: UserAnswerEntity[];
 }
 
 export default QuestionsEntity;

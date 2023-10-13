@@ -30,23 +30,31 @@ export class ExamsRepositoryImpl<T extends ExamsEntity> implements ExamsReposito
     async getById(id: string, relations?: boolean): Promise<T | undefined> {
         let criterias: any = {
             where: { id: id } as FindOptionsWhere<T>,
-            relations: ['questions'],
+            relations: ['questions', 'questions.answers'],
             select: {
                 questions: {
                     id: true,
-                    answerUserId: true
+                    title: true,
+                    subTitle: true,
+                    image: true,
+                    status: true,
+                    answers: {
+                        id: true,
+                        title: true
+                    }
                 }
             }
         };
         if (relations)
             criterias = {
                 ...criterias,
-                relations: ['questions'],
+                relations: ['questions', 'questions.userAnswer'],
                 select: {
                     questions: {
                         id: true,
+                        status: true,
                         answerCorrectId: true,
-                        answerUserId: true
+                        userAnswer: true
                     }
                 }
             };
@@ -59,13 +67,13 @@ export class ExamsRepositoryImpl<T extends ExamsEntity> implements ExamsReposito
     async getAll(): Promise<T[]> {
         let criterias: any = {
             relations: ['questions'],
-            select: {
-                questions: {
-                    id: true,
-                    answerCorrectId: true,
-                    answerUserId: true
-                }
-            }
+            withDeleted: true
+            // select: {
+            //     questions: {
+            //         id: true,
+            //         answerCorrectId: true
+            //     }
+            // }
         };
         const entities = await this.repository.find(criterias);
         return entities;

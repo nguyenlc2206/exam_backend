@@ -6,4 +6,5 @@ export interface QuestionsServices<Entity> {
     delete(id: string): Promise<void>;
     update(entity: Entity): Promise<Entity>;
     getQuestionsByExamId(id: string): Promise<Entity[]>;
+    restore(id: string): Promise<Entity>;
 }

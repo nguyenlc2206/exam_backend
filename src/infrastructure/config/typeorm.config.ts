@@ -21,7 +21,8 @@ import GroupsEntity from '@src/domain/entities/group.entity';
 import GroupsRolesEntity from '@src/domain/entities/groupRole.entity';
 import QuestionsEntity from '@src/domain/entities/question.entity';
 import RolesEntity from '@src/domain/entities/role.entity';
-import { MigrationInit1696254834540 } from '@src/infrastructure/migrations/1696254834540-MigrationInit';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
+import { MigrationInit1697084562076 } from '../migrations/1697084562076-MigrationInit';
 
 config();
 
@@ -41,10 +42,10 @@ export const DB_CONFIG = {
 /** Define config app datasource typeorm */
 const AppDataSource = new DataSource({
     type: DB_CONFIG.type,
-    host: 'db',
+    host: 'localhost',
     port: DB_CONFIG.port,
     username: 'postgres',
-    password: 'postgres',
+    password: 'Password@123',
     database: 'exams_database',
     // url: DB_CONFIG.URL,
     synchronize: true,
@@ -54,7 +55,7 @@ const AppDataSource = new DataSource({
     //         rejectUnauthorized: false
     //     }
     // },
-    // entities: ['src/infrastructure/migrations/**/*.ts']
+    // entities: ['src/domain/entities/**/*.ts'],
     entities: [
         UsersEntity,
         AnswersEntity,
@@ -64,11 +65,12 @@ const AppDataSource = new DataSource({
         GroupsEntity,
         GroupsRolesEntity,
         QuestionsEntity,
-        RolesEntity
+        RolesEntity,
+        UserAnswerEntity
     ],
     // migrations: ['src/infrastructure/migrations/**/*.ts']
     migrations: [
-        MigrationInit1696254834540
+        MigrationInit1697084562076
         // GroupsTableInit1694934066735,
         // RolesTableInit1694934273856,
         // GroupRoleTableInit1694934157356,

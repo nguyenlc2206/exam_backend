@@ -3,16 +3,25 @@ import { NextFunction, Request, Response } from 'express';
 import { QuestionsServices } from '@src/application/services/questions/questions.services';
 import QuestionsEntity from '@src/domain/entities/question.entity';
 import catchAsync from '@src/shared/catch-async';
-import { Either, success } from '@src/shared/functions';
+import { Either, failure, success } from '@src/shared/functions';
 import AppError from '@src/error-handling/app.error';
 import AnswersEntity from '@src/domain/entities/answer.entity';
+import { ExamRelationUserServices } from '@src/application/services/exam-user/exam.user.services';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import { UserAnswerServices } from '@src/application/services/user-answer/user.answer.services';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
+import { HttpRequestUser } from '@src/shared/entities/http.entity';
 
 /** define controller getQuestionsByExamId */
 export class GetQuestionsByExamIdController {
-    constructor(private _questionService: QuestionsServices<QuestionsEntity>) {}
+    constructor(
+        private _questionService: QuestionsServices<QuestionsEntity>,
+        private _examUserServices: ExamRelationUserServices<ExamUserEntity>,
+        private _userAnswerService: UserAnswerServices<UserAnswerEntity>
+    ) {}
 
     /** execute function */
-    execute = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
+    execute = catchAsync(async (req: HttpRequestUser, res: Response, next: NextFunction) => {
         /** @todo: get questions by exam Id */
         const getResult = await this.handleGetQuestionsByExamId(req.params.examId);
         if (getResult.isFailure()) return next(getResult.error);

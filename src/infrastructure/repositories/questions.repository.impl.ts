@@ -42,9 +42,20 @@ export class QuestionsRepositoryImpl<T extends QuestionsEntity> implements Quest
     /** overding getAll method */
     async getAll(): Promise<T[]> {
         const entities = await this.repository.find({
-            relations: ['answers']
-            // withDeleted: true,
-        });
+            relations: ['answers', 'exam'],
+            select: {
+                id: true,
+                title: true,
+                subTitle: true,
+                image: true,
+                status: true,
+                createdAt: true,
+                updatedAt: true,
+                deletedAt: true,
+                answerCorrectId: true
+            },
+            withDeleted: true
+        } as any);
         return entities;
     }
 
@@ -60,9 +71,26 @@ export class QuestionsRepositoryImpl<T extends QuestionsEntity> implements Quest
     async getQuestionsByExamId(id: string): Promise<T[]> {
         const criterias: any = {
             where: { exam: { id: id } } as FindOptionsWhere<any>,
-            relations: ['answers']
+            relations: ['answers'],
+            select: {
+                id: true,
+                title: true,
+                subTitle: true,
+                image: true,
+                status: true,
+                createdAt: true,
+                updatedAt: true,
+                deletedAt: true,
+                answerCorrectId: true
+            }
         };
         const entity = await this.repository.find(criterias);
         return entity;
+    }
+
+    /** overiding restore method */
+    async restore(id: string): Promise<any> {
+        const entityRestore = await this.repository.restore(id);
+        return entityRestore;
     }
 }

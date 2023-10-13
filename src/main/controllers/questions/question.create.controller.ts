@@ -73,6 +73,7 @@ export class CreateQuestionController {
         const _listQuestions: QuestionsEntity[] = [];
         Object.values(body.questions).map((item: any) => {
             const question = new QuestionsEntity();
+            if (item?.id) question.id = item?.id;
             question.exam = body.examId;
             question.title = item?.title;
             question.subTitle = item?.subTitle;

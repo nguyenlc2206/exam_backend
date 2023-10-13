@@ -41,7 +41,7 @@ export class CreateAnwserController {
         /** @todo: processing reponse */
         res.status(200).json({
             status: 'success',
-            message: '',
+            message: 'Create answers success',
             data: {
                 answers: saveAnswersResult.data
             }

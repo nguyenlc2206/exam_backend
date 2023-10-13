@@ -29,6 +29,8 @@ export const examUserRoutesSetup = (router: Router) => {
     router.use(authController.protect);
     // get all exams by user id
     router.get('/exams-user', roleRestrictTo(['user', 'admin']), examUserController.getAllByUserId);
+    // get all exams by user id
+    router.get('/exams-user/:userId', roleRestrictTo(['user', 'admin']), examUserController.getByUserId);
     // get all exams by admin
     router.get('/exams-admin', roleRestrictTo(['admin']), examUserController.getAllByAdmin);
     // create exam user router

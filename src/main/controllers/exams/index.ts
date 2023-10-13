@@ -10,21 +10,31 @@ import { UpdateExamController } from '@src/main/controllers/exams/exam.update.co
 import { SubmitExamController } from './exam.submit.controller';
 import { QuestionsServices } from '@src/application/services/questions/questions.services';
 import QuestionsEntity from '@src/domain/entities/question.entity';
+import { UserAnswerServices } from '@src/application/services/user-answer/user.answer.services';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
+import { ExamRelationUserServices } from '@src/application/services/exam-user/exam.user.services';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
 
 /** define exams controller */
 export class ExamsController {
     private exmaService: ExamsServices<ExamsEntity>;
     private categoryService: CategoryServices<ExamsCategoryEntity>;
-    private questionsServices: QuestionsServices<QuestionsEntity>;
+    // private questionsServices: QuestionsServices<QuestionsEntity>;
+    private userAnswerServices: UserAnswerServices<UserAnswerEntity>;
+    private examUserService: ExamRelationUserServices<ExamUserEntity>;
 
     constructor(
         exmaService: ExamsServices<ExamsEntity>,
         categoryService: CategoryServices<ExamsCategoryEntity>,
-        questionsServices: QuestionsServices<QuestionsEntity>
+        // questionsServices: QuestionsServices<QuestionsEntity>,
+        userAnswerServices: UserAnswerServices<UserAnswerEntity>,
+        examUserService: ExamRelationUserServices<ExamUserEntity>
     ) {
         this.exmaService = exmaService;
         this.categoryService = categoryService;
-        this.questionsServices = questionsServices;
+        // this.questionsServices = questionsServices;
+        this.userAnswerServices = userAnswerServices;
+        this.examUserService = examUserService;
     }
 
     /** create exam method */
@@ -47,13 +57,13 @@ export class ExamsController {
 
     /** get exam by id method */
     getExamById = async (req: Request, res: Response, next: NextFunction) => {
-        const getExam = new GetExamByIdController(this.exmaService);
+        const getExam = new GetExamByIdController(this.exmaService, this.examUserService, this.userAnswerServices);
         return getExam.execute(req, res, next);
     };
 
     /** submit exams method */
     submitExam = async (req: Request, res: Response, next: NextFunction) => {
-        const submitExam = new SubmitExamController(this.exmaService, this.questionsServices);
+        const submitExam = new SubmitExamController(this.exmaService, this.examUserService, this.userAnswerServices);
         return submitExam.execute(req, res, next);
     };
 }

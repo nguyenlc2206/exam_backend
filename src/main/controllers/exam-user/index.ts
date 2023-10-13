@@ -9,6 +9,7 @@ import UsersEntity from '@src/domain/entities/user.entity';
 import { CreateExamRelationUserController } from '@src/main/controllers/exam-user/exam.user.create.controller';
 import { GetAllExamsWithAdminController } from '@src/main/controllers/exam-user/exam.user.getAll.admin.controller';
 import { GetAllExamsWithUserIdController } from '@src/main/controllers/exam-user/exam.user.getAll.userId.controller';
+import { GetAllExamsByUserIdController } from './exam.user.getExamByUserId.controller';
 
 /** define exam relation user controller */
 export class ExamRelationUserController {
@@ -39,6 +40,12 @@ export class ExamRelationUserController {
     /** getAll exam by userId method */
     getAllByUserId = async (req: Request, res: Response, next: NextFunction) => {
         const getAllExamsById = new GetAllExamsWithUserIdController(this.examUserService);
+        return getAllExamsById.execute(req, res, next);
+    };
+
+    /** get exams by userId method */
+    getByUserId = async (req: Request, res: Response, next: NextFunction) => {
+        const getAllExamsById = new GetAllExamsByUserIdController(this.examUserService);
         return getAllExamsById.execute(req, res, next);
     };
 

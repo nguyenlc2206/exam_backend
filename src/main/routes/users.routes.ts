@@ -21,4 +21,6 @@ export const usersRoutesSetup = (router: Router) => {
     router.get('/users', roleRestrictTo(['admin']), usersController.getAll);
     // delete router
     router.delete('/user/:id', roleRestrictTo(['admin']), usersController.delete);
+    // check user router
+    router.get('/user/check', usersController.checkUser);
 };

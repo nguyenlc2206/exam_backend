@@ -18,9 +18,21 @@ export class ExamRelationUserServicesImpl<Entity extends ExamUserEntity> impleme
         return response;
     }
 
+    /** overding getByUserIdAndExamId method */
+    async getByUserIdAndExamId(userId: string, examId: string, retry: number): Promise<Entity[]> {
+        const response = await this.repository.getByUserIdAndExamId(userId, examId, retry);
+        return response;
+    }
+
     /** overding getAllExamsByAdmin method */
     async getAllExamsByAdmin(): Promise<Entity[] | undefined> {
         const response = await this.repository.getAllExamsByAdmin();
+        return response;
+    }
+
+    /** overding getAllExamsByAdmin method */
+    async update(entity: Entity): Promise<void> {
+        const response = await this.repository.update(entity);
         return response;
     }
 }

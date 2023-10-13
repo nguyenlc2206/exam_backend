@@ -40,4 +40,10 @@ export class QuestionsServicesImpl<Entity extends QuestionsEntity> implements Qu
         const response = await this.repository.getQuestionsByExamId(id);
         return response;
     }
+
+    /** overiding restore method */
+    async restore(id: string): Promise<any> {
+        const response = await this.repository.restore(id);
+        return response;
+    }
 }

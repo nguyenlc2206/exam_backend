@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { ExamRelationUserRepository } from '@src/application/repositories/exam.user.repository';
 import ExamUserEntity from '@src/domain/entities/examUser.entity';
 import { EntityTarget, FindOptionsRelations, FindOptionsWhere, Repository } from 'typeorm';
@@ -28,6 +29,16 @@ export class ExamRelationUserRepositoryImpl<T extends ExamUserEntity> implements
         return entity;
     }
 
+    /** overiding getByUserIdAndExamId method */
+    async getByUserIdAndExamId(userId: string, examId: string, retry: number): Promise<T[]> {
+        const criterias = {
+            where: { user: { id: userId }, exam: { id: examId }, retryId: retry } as FindOptionsWhere<any>,
+            relations: { exam: true } as FindOptionsRelations<any>
+        };
+        const entity = await this.repository.find(criterias);
+        return entity;
+    }
+
     /** overiding getAllExamsByAdmin method */
     async getAllExamsByAdmin(): Promise<T[] | undefined> {
         const criterias = {
@@ -40,5 +51,12 @@ export class ExamRelationUserRepositoryImpl<T extends ExamUserEntity> implements
         const entity = await this.repository.find(criterias);
         if (entity.length === 0) return undefined;
         return entity;
+    }
+
+    /** overiding update method */
+    async update(entity: T): Promise<void> {
+        const _cloneEntity = _.cloneDeep(entity);
+        const _itemUpdate = _.omit(_cloneEntity, ['id']);
+        await this.repository.update(entity?.id, _itemUpdate as any);
     }
 }

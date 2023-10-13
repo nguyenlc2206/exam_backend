@@ -11,28 +11,48 @@ import { Router } from 'express';
 import { AuthenticationsController } from '@src/main/controllers/authentications';
 import roleRestrictTo from '@src/main/controllers/authentications/permission.controller';
 import { QuestionsController } from '@src/main/controllers/questions';
+import { UserAnswerReporitoryImpl } from '@src/infrastructure/repositories/user.answer.repository.impl';
+import UserAnswerEntity from '@src/domain/entities/userAnswer.entity';
+import { ExamRelationUserRepositoryImpl } from '@src/infrastructure/repositories/exam.user.repository.impl';
+import ExamUserEntity from '@src/domain/entities/examUser.entity';
+import { UserAnswerServicesImpl } from '@src/application/services/user-answer/user.answer.services.impl';
+import { ExamRelationUserServicesImpl } from '@src/application/services/exam-user/exam.user.services.impl';
 
 /** init repository */
 const questionsRepository = new QuestionsRepositoryImpl(QuestionsEntity);
 const examsRepository = new ExamsRepositoryImpl(ExamsEntity);
 const usersRepository = new UsersRepositoryImpl(UsersEntity);
+const userAnswerRepository = new UserAnswerReporitoryImpl(UserAnswerEntity);
+const examUserRepository = new ExamRelationUserRepositoryImpl(ExamUserEntity);
+
 /** init service */
 const questionsServices = new QuestionsServicesImpl(questionsRepository);
 const examsServices = new ExamsServicesImpl(examsRepository);
 const usersServices = new UsersServicesImpl(usersRepository);
+
+const userAnswerServices = new UserAnswerServicesImpl(userAnswerRepository);
+const examUserServices = new ExamRelationUserServicesImpl(examUserRepository);
+
 /** init controller */
-const questionsController = new QuestionsController(examsServices, questionsServices);
+const questionsController = new QuestionsController(
+    examsServices,
+    questionsServices,
+    userAnswerServices,
+    examUserServices
+);
 const authController = new AuthenticationsController(usersServices);
 /** init questions routes */
 export const questionsRoutesSetup = (router: Router) => {
     // protect routes
     router.use(authController.protect);
     // create question router
-    router.post('/questions', roleRestrictTo(['user', 'admin']), questionsController.create);
+    router.post('/questions', roleRestrictTo(['admin']), questionsController.create);
     // create question router
-    router.get('/questions', roleRestrictTo(['user', 'admin']), questionsController.getAll);
+    router.get('/questions', roleRestrictTo(['admin']), questionsController.getAll);
     // create question router
-    router.delete('/questions/:id', roleRestrictTo(['user', 'admin']), questionsController.delete);
+    router.delete('/questions/:id', roleRestrictTo(['admin']), questionsController.delete);
     // get questions router
-    router.get('/questions/:examId', roleRestrictTo(['user', 'admin']), questionsController.getQuestionsByExamId);
+    router.get('/questions/:examId', roleRestrictTo(['admin']), questionsController.getQuestionsByExamId);
+    // restore questions router
+    router.post('/questions/:id', roleRestrictTo(['admin']), questionsController.restore);
 };

@@ -4,6 +4,7 @@ import { NextFunction, Request, Response } from 'express';
 import { CreateUserController } from '@src/main/controllers/users/user.create.controller';
 import { DeleteUserController } from '@src/main/controllers/users/user.delete.controller';
 import { GetAllUsersController } from '@src/main/controllers/users/user.getAll.controller';
+import { CheckUserController } from '@src/main/controllers/users/user.check.controller';
 
 /** Define users controller */
 export class UsersController {
@@ -29,5 +30,11 @@ export class UsersController {
     delete = async (req: Request, res: Response, next: NextFunction) => {
         const deleteUser = new DeleteUserController(this.service);
         return deleteUser.execute(req, res, next);
+    };
+
+    /** checkUser user */
+    checkUser = async (req: Request, res: Response, next: NextFunction) => {
+        const checkUser = new CheckUserController(this.service);
+        return checkUser.execute(req, res, next);
     };
 }
