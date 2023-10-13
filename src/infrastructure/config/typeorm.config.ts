@@ -50,11 +50,11 @@ const AppDataSource = new DataSource({
     url: DB_CONFIG.URL,
     synchronize: true,
     logging: false,
-    // extra: {
-    //     ssl: {
-    //         rejectUnauthorized: false
-    //     }
-    // },
+    extra: {
+        ssl: {
+            rejectUnauthorized: false
+        }
+    },
     // entities: ['src/domain/entities/**/*.ts'],
     entities: [
         UsersEntity,
