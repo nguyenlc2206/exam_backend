@@ -42,12 +42,12 @@ export const DB_CONFIG = {
 /** Define config app datasource typeorm */
 const AppDataSource = new DataSource({
     type: DB_CONFIG.type,
-    host: 'localhost',
-    port: DB_CONFIG.port,
-    username: 'postgres',
-    password: 'Password@123',
-    database: 'exams_database',
-    // url: DB_CONFIG.URL,
+    // host: 'localhost',
+    // port: DB_CONFIG.port,
+    // username: 'postgres',
+    // password: 'Password@123',
+    // database: 'exams_database',
+    url: DB_CONFIG.URL,
     synchronize: true,
     logging: false,
     // extra: {
