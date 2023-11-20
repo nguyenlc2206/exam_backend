@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "dist/src/main/server.js",
-    "engines": {
-        "node": "16.x"
-    },
     "scripts": {
         "dev": "npx nodemon",
         "build": "tsc && tsc-alias",
